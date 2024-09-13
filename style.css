@@ -125,7 +125,7 @@ main button {
     width: 278px;
 
     position: absolute;
-    bottom: 36%;
+    bottom: 32%;
     right: calc(50% - 139px);
 
     color: white;
@@ -143,8 +143,108 @@ main button {
     background-color: var(--rosa-medio);
 }
 
+.category {
+    height: 100vh;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .slider-category {
-    height: 567px;
+    width: 1760px;
     border: solid 2px red;
-    margin: 64px auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.genre-selector {
+    position: relative;
+    width: 50%;
+    
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.line-div {
+    height: 2px;
+    width: 50%;
+    background: var(--rosa-claro);
+}
+
+.genre-selector .tab-btn {
+    font-family: 'Moderustic';
+    font-size: 2.5em;
+    font-weight: 300;
+    color: var(--rosa-claro);
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.genre-selector .tab-btn.active {
+    color: var(--rosa-escuro);
+    font-weight: 500;
+    transition: ease-in-out 500ms; 
+}
+
+.content-box {
+    padding: 20px;
+}
+
+.content-box .content {
+    display: none;
+    animation: moving .5s ease;
+}
+
+@keyframes moving {
+    from{transform: translateX(50px);opacity: 0;}
+    to{transform: translateX(0px);opacity: 1;}
+}
+
+.content-box .content.active {
+    display: block;
+}
+
+.content-box .content h2 {
+    margin-bottom: 10px;
+}
+
+.content-photos {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.photo-category {
+    width: 425px;
+    height: 425px;
+
+    /* Coloquei dessa forma para não ter que aumentar o tamanho da caixa*/
+    box-sizing:initial;
+    border-bottom: solid 5px var(--rosa-escuro);
+}
+
+.content:nth-child(2) .photo-category {
+    border-bottom: solid 5px #5371B3;
+}
+
+.photo-category img {
+    width: 425px;
+    height: 425px;
+    object-fit:cover;
+}
+
+.line {
+    position: absolute;
+    top: 49.5px;
+    left: 129px;
+    width: 169px;
+    height: 5px;
+    background: var(--rosa-escuro);
+    transition: all .3s ease-in-out;
 }
