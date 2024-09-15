@@ -38,3 +38,30 @@ tabs.forEach((tab, index) => {
         }
     })
 })
+
+
+// Slider Models
+
+let list = document.querySelector('.slider .list');
+let items = document.querySelectorAll('.slider .list .item');
+let dots = document.querySelectorAll('.slider .dots li');
+
+let active = 0;
+let lengthItems = items.length - 1;
+
+const reloadSlider = () => {
+    let checkLeft = items[active].offsetLeft;
+    list.style.left = -checkLeft + 'px';
+
+    let lastActiveDot = document.querySelector('.slider .dots li.active');
+    lastActiveDot.classList.remove('active');
+    dots[active].classList.add('active');
+}
+
+dots.forEach ((li,key) => {
+    li.addEventListener('click', function(){
+        active = key;
+        reloadSlider();
+    })
+})
+
