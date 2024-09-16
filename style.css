@@ -296,13 +296,15 @@ main button {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    padding: 64px 0;
 }
 
 .photo-model {
     height: 715px;
     width: 466px;
-    border-bottom: solid 5px var(--rosa-medio);
     object-fit:fill;
+    border-bottom: solid 5px var(--rosa-medio);
 }
 
 .slider {
@@ -332,13 +334,12 @@ main button {
 } */
 
 .dots {
-    position: absolute;
-    bottom: 10px;
+    position: relative;
     color: red;
     left: 0;
     /* Era 100*/
     width: 100%;
-    margin: 0;
+    margin-top: 24px;
     padding: 0;
     display: flex;
     justify-content: center;
@@ -355,7 +356,71 @@ main button {
     cursor: pointer;
 }
 
+.dots li:hover {
+    background-color: var(--rosa-medio);
+    transition: ease-out 300ms;
+}
+
 .dots li.active {
     width: 72px;
-    background-color: #9F3D56;
+    background-color: var(--rosa-escuro);
+}
+
+.icons {
+    width: 100vw;
+    height: 304px;
+    
+    color: white;
+    
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bg-icons {
+    width: 100vw;
+    background-image: url(images/div/Info-2.svg);
+}
+
+.description-service {
+    width: 60%;
+    max-width: 1166px;
+
+    margin: 32px 0;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.description-service h2, .icons h2{
+    color: white;
+    font-size: 1.25em;
+    text-align: center;
+    margin-bottom: 24px;    
+}
+
+#cto-1{
+    font-size: 2em;
+    margin: 0;
+}
+
+.description-service p {
+    font-family: 'Open Sans Regular';
+    font-size: 1em;
+}
+
+.item-desc {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    width: 24%;
+}
+
+.description-text {
+    display: flex;
+
+    justify-content: center;
+    gap: 24px;
 }
