@@ -42,8 +42,8 @@ tabs.forEach((tab, index) => {
 
 // Slider Models
 
-let list = document.querySelector('.slider .list');
-let items = document.querySelectorAll('.slider .list .item');
+let list = document.querySelector('.models .slider .list');
+let items = document.querySelectorAll('.models .slider .list .item');
 let dots = document.querySelectorAll('.models .dots li');
 
 let active = 0;
@@ -55,7 +55,7 @@ const reloadSlider = () => {
     let checkLeft = items[active].offsetLeft;
     list.style.left = -checkLeft + 'px';
 
-    let lastActiveDot = document.querySelector('.slider .dots li.active');
+    let lastActiveDot = document.querySelector('.models .slider .dots li.active');
     lastActiveDot.classList.remove('active');
     dots[active].classList.add('active');
     clearInterval(refreshSlider);
@@ -69,3 +69,30 @@ dots.forEach ((li,key) => {
     })
 })
 
+// Slider Clothes
+
+let listClothes = document.querySelector('.carrossel-products .slider .list');
+let itemsClothes = document.querySelectorAll('.carrossel-products .slider .list .item');
+let dotsClothes = document.querySelectorAll('.carrossel-products .dots li');
+
+let activeClothes = 0;
+let lengthItemsClothes = itemsClothes.length - 1;
+
+
+const reloadSliderClothes = () => {
+    let checkLeftClothes = itemsClothes[active].offsetLeft;
+    listClothes.style.left = -checkLeftClothes + 'px';
+
+    let lastActiveDotClothes = document.querySelector('.carrossel-products .slider .dots li.active');
+    lastActiveDotClothes.classList.remove('active');
+    dotsClothes[active].classList.add('active');
+    clearInterval(refreshSlider);
+    refreshSlider = setInterval(()=> {next.click()}, 3000)
+}
+
+dotsClothes.forEach ((li,key) => {
+    li.addEventListener('click', function(){
+        active = key;
+        reloadSliderClothes();
+    })
+})

@@ -61,7 +61,7 @@ p {
 
 header {
     position: sticky;
-    width: 100vw;
+    width: 100%;
     height: 80px;
 
     background: #FFFFFF;
@@ -125,7 +125,7 @@ main {
 
 main img {
     height: calc(100vh - 115px);
-    width: 100vw;
+    width: 100%;
     object-fit: cover;
     position: relative;
 }
@@ -309,7 +309,7 @@ main button {
 
 .slider {
     width: 1464px;
-    max-width: 100vw;
+    max-width: 100%;
     height: 700px;
     margin: auto;
     position: relative;
@@ -367,7 +367,7 @@ main button {
 }
 
 .icons {
-    width: 100vw;
+    width: 100%;
     height: 304px;
     
     color: white;
@@ -379,7 +379,7 @@ main button {
 }
 
 .bg-icons {
-    width: 100vw;
+    width: 100%;
     background-image: url(images/div/Info-2.svg);
 }
 
@@ -427,15 +427,19 @@ main button {
 }
 
 .carrossel-products {
-    width: 100vw;
+    width: 100%;
     text-align: center;
+    padding: 132px 0 ;
 }
 
 .carrossel-products .slider {
     width: 100%;
-    height: 100vh;
+    height: 100%;
 }
 
+.carrossel-products .list {   
+    position: relative;
+}
 
 .carrossel-products .slider .item {
     display: flex;
@@ -444,8 +448,15 @@ main button {
 }
 
 .photo-slide {
-    width: 100vw;
+    width: 100%;
 
     display: flex;
-    gap:72px
+    gap:24px
+}
+
+.carrossel-products .dots {
+    /* Faz nada */
+    bottom: 0;
+
+    position: relative;
 }
