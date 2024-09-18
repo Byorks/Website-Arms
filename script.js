@@ -41,7 +41,7 @@ tabs.forEach((tab, index) => {
 
 
 // Slider Models
-
+/* Precisa corrigir o next */
 let list = document.querySelector('.models .slider .list');
 let items = document.querySelectorAll('.models .slider .list .item');
 let dots = document.querySelectorAll('.models .dots li');
@@ -96,3 +96,14 @@ dotsClothes.forEach ((li,key) => {
         reloadSliderClothes();
     })
 })
+
+
+// Accordion FAQ
+
+const faqs = document.querySelectorAll('.faq');
+
+faqs.forEach((faq) => {
+    faq.addEventListener("click", () => {
+        faq.classList.toggle("active");
+    })
+}) 
