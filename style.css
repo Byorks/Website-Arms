@@ -460,3 +460,11 @@ main button {
 
     position: relative;
 }
+
+/* Perguntas */
+
+.perguntas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
