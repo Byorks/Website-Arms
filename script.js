@@ -97,6 +97,68 @@ dotsClothes.forEach ((li,key) => {
     })
 })
 
+// Loading question from API
+
+// const importQuestionAnswer = () => {
+//     fetch("http://localhost:3000/faq")
+//     .then ((resposta) => resposta.json())
+//     .then ((dadosTratados) => {
+//         console.log(dadosTratados)
+//         faqList = dadosTratados;
+//         loadFaq();
+//     })
+// }
+
+// importQuestionAnswer();
+// Render questions 
+
+
+let faqList = [
+    {
+        question: "Existe loja física da Arms?",
+        answer: "sNo momento só trabalhamos com loja virtual."
+    },
+    
+    {
+        question: "Como posso rastrear a entrega",
+        answer: "Lorem ipsum odor amet, consectetuer adipiscing elit. Lacus suspendisse mattis orci dolor penatibus odio nunc. Purus himenaeos lectus praesent dis augue nostra ante. Scelerisque aliquam lobortis vivamus vulputate et molestie metus montes bibendum. Aliquet pellentesque auctor primis himenaeos porttitor tempor euismod. Tincidunt risus natoque ullamcorper sem cursus, curabitur ultrices ad."
+    }
+    
+];
+
+
+const loadFaq = () => {
+    let containerFaq = document.querySelector(".perguntas");
+
+    let template = ""
+
+    faqList.forEach( faq => {
+        template += ` 
+            <div class="faq">
+                <div class="question">
+                    <h3>${ faq.question }</h3>
+                    
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="32" height="32" fill="white"/>
+                        <path d="M9.5 7.5L16 16L22.5 7.5" stroke="#9F3D56"/>
+                        <path d="M9.5 16L16 24.5L22.5 16" stroke="#9F3D56"/>
+                    </svg>
+                        
+                            
+                </div>
+                <div class="answer">
+                    <p>
+                        ${ faq.answer}
+                    </p>
+                </div>
+            </div>
+        `
+    })
+
+    containerFaq.innerHTML = template;
+} 
+
+loadFaq();
 
 // Accordion FAQ
 
