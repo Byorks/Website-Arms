@@ -537,6 +537,10 @@ main button, #contato button:nth-child(2){
     }
 }
 
+#contato {
+    margin-bottom: 72px;
+}
+
 .contato {
     width: 100%;
     background-color: #F6F6F6;  
@@ -601,4 +605,8 @@ main button, #contato button:nth-child(2){
     background-color: transparent;
     border: none;
     color: var(--rosa-escuro);
+}
+
+footer {
+    background-color: #F6F6F6;
 }
