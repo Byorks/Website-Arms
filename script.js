@@ -49,7 +49,7 @@ let dots = document.querySelectorAll('.models .dots li');
 let active = 0;
 let lengthItems = items.length - 1;
 
-let refreshSlider = setInterval(()=> {next.click()}, 3000)
+// let refreshSlider = setInterval(()=> {next.click()}, 3000)
 
 const reloadSlider = () => {
     let checkLeft = items[active].offsetLeft;
@@ -97,21 +97,7 @@ dotsClothes.forEach ((li,key) => {
     })
 })
 
-// Loading question from API
-
-// const importQuestionAnswer = () => {
-//     fetch("http://localhost:3000/faq")
-//     .then ((resposta) => resposta.json())
-//     .then ((dadosTratados) => {
-//         console.log(dadosTratados)
-//         faqList = dadosTratados;
-//         loadFaq();
-//     })
-// }
-
-// importQuestionAnswer();
 // Render questions 
-
 
 let faqList = [
     {
@@ -134,8 +120,7 @@ let faqList = [
     
 ];
 
-
-const loadFaq = () => {
+const loadFaq = (faqList) => {
     let containerFaq = document.querySelector(".perguntas");
 
     let template = ""
@@ -166,14 +151,32 @@ const loadFaq = () => {
     containerFaq.innerHTML = template;
 } 
 
-loadFaq();
+// Loading question from API
+const importQuestionAnswer = () => {
+    fetch("db.json")
+    .then ((resposta) => resposta.json())
+    .then ((dadosTratados) => {
+        let faqList = dadosTratados;
+        loadFaq(faqList);
+        loadAccordion();
+    })
+}
+
+importQuestionAnswer();
+
+
 
 // Accordion FAQ
 
-const faqs = document.querySelectorAll('.faq');
+const loadAccordion = () => {
+    const faqs = document.querySelectorAll('.faq');
 
-faqs.forEach((faq) => {
-    faq.addEventListener("click", () => {
-        faq.classList.toggle("active");
-    })
-}) 
+    console.log(faqs)
+    
+    faqs.forEach((faq) => {
+        faq.addEventListener("click", () => {
+            faq.classList.toggle("active");
+        })
+    });
+}
+
