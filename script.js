@@ -99,26 +99,6 @@ dotsClothes.forEach ((li,key) => {
 
 // Render questions 
 
-let faqList = [
-    {
-        question: "Existe loja física da Arms?",
-        answer: "No momento só trabalhamos com loja virtual."
-    },
-    
-    {
-        question: "Qual é o prazo de entrega?",
-        answer: "O prazo varia conforme a localidade de entrega do pedido."
-    },
-    {
-        question: "Como posso rastrear a entrega",
-        answer: "Assim que o produto é enviado, você receberá seu código de rastreio pela mensagem do WhatsApp, para que você possa acompanhar a entrega!"
-    },
-    {
-        question: "Qual é o horário de funcionamento?",
-        answer: "Segunda a sexta 08h ás 17h e sabádo 08h às 14h."
-    }
-    
-];
 
 const loadFaq = (faqList) => {
     let containerFaq = document.querySelector(".perguntas");
@@ -153,7 +133,7 @@ const loadFaq = (faqList) => {
 
 // Loading question from API
 const importQuestionAnswer = () => {
-    fetch("db.json")
+    fetch("faq.json")
     .then ((resposta) => resposta.json())
     .then ((dadosTratados) => {
         let faqList = dadosTratados;
