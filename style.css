@@ -610,3 +610,104 @@ main button, #contato button:nth-child(2){
 footer {
     background-color: #F6F6F6;
 }
+
+.info-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start ;
+
+    padding: 32px 0;
+}
+
+.info-links div {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-links div div, .info-links div:nth-child(2) {
+    gap: 32px;
+}
+
+.info-links h2, .footer-icons h2 {
+    font-size: 1.25em;
+    margin-bottom: 8px;
+}
+
+.info-links p {
+    font-size: 1.25em;
+    font-family: 'Open Sans Regular';
+}
+
+.info-links a {
+    font-size: 1.25em;
+    font-family: 'Open Sans Semibold';
+    text-decoration-line: none;
+    color: var(--rosa-escuro);
+}
+
+.footer-icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 48px 0px;
+
+    background: #FFFFFF;
+    /* M3/Elevation Light/1 */
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+}
+
+.container-icon {
+    width: 24%;
+
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.container-icon div {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+}
+
+.container-icon h2 {
+    text-align: center;
+}
+
+.footer-info {
+    background-color: var(--rosa-escuro);
+
+    margin-top: 32px;
+    width: 100%;
+    padding: 12px 0;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.footer-info p{
+    font-size: .75em;
+    color: white;
+    font-family: 'Open Sans Regular';   
+}
+
+.pattern {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+    background-image: url(images/elements/pattern-footer.svg);
+    background-repeat: no-repeat;
+    left: 0;
+    top: 0;
+}
+
+.footer-info .pattern:last-child{
+    top: 0;
+    transform:  scaleX(-1) scaleY(-1);
+}
