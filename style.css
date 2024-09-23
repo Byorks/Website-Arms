@@ -148,10 +148,41 @@ main button, #contato button:nth-child(2){
     cursor: pointer;
 }
 
-.horizontal-scroll {
-    height: 25px;
-    background-color: var(--rosa-medio);
+@keyframes slide {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }    
 }
+
+.horizontal-scroll {
+    background-color: var(--rosa-medio);
+    overflow: hidden;
+    padding: 4px 0;
+    white-space: nowrap;
+}
+
+.text-slide {
+    display: inline-block;
+    animation:  14s slide infinite linear;
+}
+
+.text-slide div{
+    display: flex;
+    align-items: center;
+}
+
+.text-slide p {
+    font-family: 'Moderustic';
+    font-size: 1.25em;
+    font-weight: 400;
+    color: white;
+
+    margin: 0 192px;
+}
+
 
 .category {
     height: 100vh;
@@ -380,7 +411,24 @@ main button, #contato button:nth-child(2){
 
 .bg-icons {
     width: 100%;
-    background-image: url(images/div/Info-2.svg);
+    /* background-image: url(images/div/Info-2.svg); */
+
+    background-color: var(--rosa-escuro);
+    position: relative;
+    overflow: hidden;
+}
+
+.bg-icons .pattern {
+    background-image: url(images/elements/pattern-icons-completo.svg);
+    top: 25px;
+    left: -300px;
+}
+
+.bg-icons .pattern:last-child {
+    top: unset;
+    left: unset;
+    bottom: 25px;
+    right: -300px;
 }
 
 .description-service {
@@ -707,7 +755,7 @@ footer {
     top: 0;
 }
 
-.footer-info .pattern:last-child{
+.pattern:last-child{
     top: 0;
     transform:  scaleX(-1) scaleY(-1);
 }
