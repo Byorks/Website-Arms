@@ -828,10 +828,20 @@ footer {
     .models .slider {
         height: 586px;
     }
+
     
     .models .list img {
         width: 382px;
         height: 586px;
+    }
+    
+    .carrossel-products .container-grid {
+        width: 100%;
+        max-width: unset;
+    }
+
+    .carrossel-products .photo-slide {
+        width: 100vw;
     }
 }
 
