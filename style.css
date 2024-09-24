@@ -84,6 +84,8 @@ header {
     transition: all 0.3s ease-in-out; /* Suavizar a transição */
     background-color: #fff;
     width: 100%;
+
+    z-index: 5;
 }
 
 #header.fixed {
@@ -543,7 +545,9 @@ main .item button, #contato button:nth-child(2){
     width: 100%;
 
     display: flex;
-    gap:24px
+    gap:24px;
+
+    justify-content: center;
 }
 
 .carrossel-products .dots {
@@ -802,4 +806,37 @@ footer {
 .pattern:last-child{
     top: 0;
     transform:  scaleX(-1) scaleY(-1);
+}
+
+@media screen and (max-width: 1825px) {
+    
+    .photo-category, .photo-category img {
+        width: 340px;
+        height: 340px;
+    }
+
+    .line {
+        width: 169px;
+        left: 129px;
+    }
+    
+    
+}
+
+@media screen and (max-width: 1475px) {
+   .models .list img {
+        width: 382px;
+        height: 586px;
+   }
+   
+    .photo-category, .photo-category img {
+        width: 320px;
+        height: 320px;
+    }
+
+    .photo-model {
+        
+    }
+
+    
 }
