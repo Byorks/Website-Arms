@@ -93,6 +93,7 @@ header {
     top: 0;
     left: 0;
     z-index: 100;
+    padding: 0 5%;
 }
 
 .container-grid {
@@ -231,7 +232,7 @@ main .item button, #contato button:nth-child(2){
 
 
 .category {
-    height: 100vh;
+    padding: 132px 0;
     
     display: flex;
     justify-content: center;
@@ -377,6 +378,10 @@ main .item button, #contato button:nth-child(2){
     padding: 64px 0;
 }
 
+.models .photo-slide {
+    width: 100vw;
+}
+
 .photo-model {
     height: 715px;
     width: 466px;
@@ -385,7 +390,8 @@ main .item button, #contato button:nth-child(2){
 }
 
 .slider {
-    width: 1464px;
+    /* width: 1464px; */
+    width: 100%;
     max-width: 100%;
     height: 700px;
     margin: auto;
@@ -745,7 +751,7 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 48px 0px;
+    padding: 48px 24px;
 
     background: #FFFFFF;
     /* M3/Elevation Light/1 */
@@ -816,27 +822,63 @@ footer {
     }
 
     .line {
-        width: 169px;
         left: 129px;
     }
+
+    .models .slider {
+        height: 586px;
+    }
     
+    .models .list img {
+        width: 382px;
+        height: 586px;
+    }
+}
+
+@media screen and (max-width: 1825px) {
+    .line {
+        left: 121px;
+    }
+
+    .photo-category, .photo-category img {
+        width: 298px;
+        height: 298px;
+    }
+
+}
+
+
+@media screen and (max-width: 1650px) {
+    .line {
+        left: 110px;
+    }
     
+    /* .carrossel-products .slider .item {
+        width: 100vw;
+    } */
 }
 
 @media screen and (max-width: 1475px) {
-   .models .list img {
-        width: 382px;
-        height: 586px;
-   }
-   
-    .photo-category, .photo-category img {
-        width: 320px;
-        height: 320px;
+    .line {
+        left: 88px;
     }
 
-    .photo-model {
-        
+    .models .list img {
+        width: 382px;
+        height: 586px;
     }
+    
+    .models .photo-slide {
+        width: 100vw;
+    }
+    .photo-model {
+
+    }
+    .photo-category, .photo-category img {
+        width: 274px;
+        height: 274px;
+    }
+
 
     
 }

@@ -48,8 +48,10 @@ window.addEventListener('scroll', function(){
 
     if(categoryPosition <= 0) {
         header.classList.add('fixed');
+        header.classList.remove('container-grid')
     } else {
         header.classList.remove('fixed');
+        header.classList.add('container-grid')
     }
 });
 
@@ -100,8 +102,8 @@ const reloadSlider = () => {
     let lastActiveDot = document.querySelector('.models .slider .dots li.active');
     lastActiveDot.classList.remove('active');
     dots[active].classList.add('active');
-    clearInterval(refreshSlider);
-    refreshSlider = setInterval(()=> {next.click()}, 3000)
+    // clearInterval(refreshSlider);
+    // refreshSlider = setInterval(()=> {next.click()}, 3000)
 }
 
 dots.forEach ((li,key) => {
