@@ -42,6 +42,9 @@
     font-weight: 700; 
 }
 
+html {
+    scroll-behavior: smooth;
+}
 
 h1, h2, h3 {
     font-family: 'Moderustic';
@@ -60,7 +63,6 @@ p {
 }
 
 header {
-    position: sticky;
     width: 100%;
     height: 80px;
 
@@ -118,7 +120,7 @@ header {
 
     font-family: 'Open Sans Bold';
 }
-
+/* 
 main {
     height: calc(100vh - 115px);
 }
@@ -128,15 +130,41 @@ main img {
     width: 100%;
     object-fit: cover;
     position: relative;
+} */
+
+main .slider {
+    width: 100%;
+    height: 90vh;
+    max-height: 965px;
 }
 
-main button, #contato button:nth-child(2){
+main .dots {
+    position: absolute;
+    bottom: 24px;
+}
+
+main .list img {
+    width: 100vw;
+    height: 100%;
+    object-fit: cover;
+}
+
+.banner-1 {
+    position: relative;
+}
+
+main .item:not(.active) button {
+    display: none;
+}
+
+
+main .item button, #contato button:nth-child(2){
     height: 58px;
     width: 278px;
 
-    position: absolute;
-    bottom: 32%;
-    right: calc(50% - 139px);
+    position: relative;
+    bottom: 35%;
+    right: 50%;
 
     color: white;
     background-color: var(--rosa-escuro);

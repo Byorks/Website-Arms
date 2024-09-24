@@ -39,6 +39,34 @@ tabs.forEach((tab, index) => {
     })
 })
 
+// Banner Carrossel
+let listBanner = document.querySelector('main .slider .list');
+let itemsBanner = document.querySelectorAll('main .slider .list .item');
+let dotsBanner= document.querySelectorAll('main .dots li');
+
+let activeBanner = 0;
+let lengthItemsBanner = itemsBanner.length - 1;
+
+// let refreshSlider = setInterval(()=> {next.click()}, 3000)
+
+const reloadSliderBanner = () => {
+    let checkLeft = itemsBanner[active].offsetLeft;
+    listBanner.style.left = -checkLeft + 'px';
+
+    let lastActiveDot = document.querySelector('main .slider .dots li.active');
+    lastActiveDot.classList.remove('active');
+    dotsBanner[active].classList.add('active');
+    // clearInterval(refreshSlider);
+    // refreshSlider = setInterval(()=> {next.click()}, 3000)
+}
+
+dotsBanner.forEach ((li,key) => {
+    li.addEventListener('click', function(){
+        active = key;
+        reloadSliderBanner();
+    })
+})
+
 
 // Slider Models
 /* Precisa corrigir o next */
