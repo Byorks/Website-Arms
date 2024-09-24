@@ -39,6 +39,20 @@ tabs.forEach((tab, index) => {
     })
 })
 
+// Header 
+window.addEventListener('scroll', function(){
+    let categorySection = this.document.getElementById('category');
+    let header = this.document.getElementById('header');
+
+    let categoryPosition = categorySection.getBoundingClientRect().top;
+
+    if(categoryPosition <= 0) {
+        header.classList.add('fixed');
+    } else {
+        header.classList.remove('fixed');
+    }
+});
+
 // Banner Carrossel
 let listBanner = document.querySelector('main .slider .list');
 let itemsBanner = document.querySelectorAll('main .slider .list .item');
