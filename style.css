@@ -63,7 +63,6 @@ p {
 }
 
 header {
-    position: sticky;
     width: 100%;
     height: 80px;
 
@@ -83,21 +82,19 @@ header {
 
     transition: all 0.3s ease-in-out; /* Suavizar a transição */
     background-color: #fff;
-    width: 100%;
-
-    z-index: 5;
 }
 
 #header.fixed {
+    width: 100%;
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 100;
+    z-index: 9999;
     padding: 0 5%;
 }
 
 .container-grid {
-    width: 90vw;
+    width: 90%;
     max-width: 1760px;
     margin: 0 auto;
 }
@@ -451,7 +448,7 @@ main .item button, #contato button:nth-child(2){
 
 .icons {
     width: 100%;
-    height: 304px;
+    /* height: 304px; */
     
     color: white;
     
@@ -459,6 +456,8 @@ main .item button, #contato button:nth-child(2){
     justify-content: center;
     flex-direction: column;
     align-items: center;
+
+    padding: 24px 0;
 }
 
 .bg-icons {
@@ -487,7 +486,7 @@ main .item button, #contato button:nth-child(2){
     width: 60%;
     max-width: 1166px;
 
-    margin: 32px 0;
+    margin-bottom: 24px;
 
     display: flex;
     justify-content: space-between;
@@ -854,7 +853,13 @@ footer {
         width: 298px;
         height: 298px;
     }
-
+    
+    .container-icon {
+        width: 30%;
+    }
+    .container-icon div{
+        gap: 8px;
+    }
 }
 
 
@@ -868,6 +873,13 @@ footer {
     } */
 }
 
+@media screen and (max-width: 1530px) {
+    .line {
+        left: 98px;
+    }
+}
+
+
 @media screen and (max-width: 1475px) {
     .line {
         left: 88px;
@@ -878,9 +890,6 @@ footer {
         height: 586px;
     }
     
-    .models .photo-slide {
-        width: 100vw;
-    }
     .photo-model {
 
     }
@@ -889,6 +898,65 @@ footer {
         height: 274px;
     }
 
+    .buttons {
+        width: 100%;
+        gap: 24px;
+    }
+}
 
+@media screen and (max-width: 1300px) {
+
+    h2{
+        margin-bottom: 32px;
+    }
+
+    .line {
+        left: 67px;
+    }
     
+    .models .slider {
+        height: 466px;
+    }
+
+    .models .list img {
+        width: 304px;
+        height: 466px;
+    }
+
+    .carrossel-products {
+        padding: 64px 0;
+    }
+
+    .photo-category, .photo-category img {
+        width: 198px;
+        height: 198px;
+    }
+
+    .buttons {
+        width: 100%;
+        gap: 24px;
+    }
+
+    #contato button:nth-child(2) {
+        width: 35%;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .line {
+        left: 57px;
+    }
+}
+
+@media screen and (max-width: 1155px) {
+    .line {
+        left: 52px;
+    }
+}
+
+
+@media screen and (max-width: 1050px) {
+    .line {
+        left: 33px;
+    }
 }
