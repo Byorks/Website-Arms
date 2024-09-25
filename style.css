@@ -952,11 +952,30 @@ footer {
     .line {
         left: 52px;
     }
+
+    .contato {
+        padding: 84px 92px;
+    }
 }
 
 
 @media screen and (max-width: 1050px) {
     .line {
         left: 33px;
+    }
+
+    .photo-arms {
+        width: 370px;
+    }
+}
+
+
+@media screen and (max-width: 950px) {
+    .line {
+        left: 23px;
+    }
+
+    .contato {
+        padding: 32px 42px;
     }
 }

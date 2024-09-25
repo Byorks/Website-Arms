@@ -188,8 +188,6 @@ const importQuestionAnswer = () => {
 
 importQuestionAnswer();
 
-
-
 // Accordion FAQ
 
 const loadAccordion = () => {
