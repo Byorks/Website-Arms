@@ -1064,6 +1064,15 @@ footer {
     
     p {
         font-size: 1.1em;
+    }   
+
+    /* Depois implementar dots que seguem o user mesmo com scroll */
+    /* main .dots {
+        position: sticky;
+    } */
+
+    .category {
+        padding: 64px 0;
     }
     
     .slider-category {
@@ -1079,6 +1088,16 @@ footer {
     .photo-category, .photo-category img {
         width: 164px;
         height: 164px;
+    }
+
+    .slider {
+        overflow-x: auto;
+        font-size: 0;
+        scrollbar-width: none;
+    }   
+
+    .photo-slide {
+        
     }
 
     .description-service {
@@ -1108,4 +1127,8 @@ footer {
     .social h2 {
         font-size: 2.5em;
     }
+}
+
+@media screen and (max-width: 815px) {
+
 }
