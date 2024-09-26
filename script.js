@@ -99,7 +99,7 @@ const reloadSlider = () => {
     let checkLeft = items[active].offsetLeft;
     list.style.left = -checkLeft + 'px';
 
-    let lastActiveDot = document.querySelector('.models .slider .dots li.active');
+    let lastActiveDot = document.querySelector('.models .dots li.active');
     lastActiveDot.classList.remove('active');
     dots[active].classList.add('active');
     // clearInterval(refreshSlider);
