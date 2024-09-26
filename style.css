@@ -352,6 +352,10 @@ main .item button, #contato button:nth-child(2){
     justify-content: space-between;
 }
 
+.history:nth-child(3) {
+    margin-top: 24px;
+}
+
 .history p {
     width: 40%;
 }
@@ -360,7 +364,11 @@ main .item button, #contato button:nth-child(2){
     width: 870px;
     height: 444px;
 
-    object-fit: scale-down;
+    object-fit: cover;
+}
+
+.photo-arms:nth-child(2) {
+    object-fit: contain;
 }
 
 #slide-1, #slide-2, #slide-3 {
