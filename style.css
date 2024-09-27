@@ -1132,3 +1132,9 @@ footer {
 @media screen and (max-width: 815px) {
 
 }
+
+@media screen and (max-width: 550px) {
+    .slider-category {
+        overflow-y: auto;
+    }
+}
