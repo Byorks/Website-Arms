@@ -1006,8 +1006,11 @@ footer {
     .models .item {
         position: relative;
     }
+ 
+/* 
+    Degradê 
 
-    .models .item::after, .models .item::before{
+       .models .item::after, .models .item::before{
         position: absolute;
         top: 0;
 
@@ -1023,7 +1026,7 @@ footer {
     .models .item::before{
         left: 0;
         background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
-    }
+    } */
     
     .models .list img {
         width: 268px;
@@ -1136,5 +1139,32 @@ footer {
 @media screen and (max-width: 550px) {
     .slider-category {
         overflow-y: auto;
+        scrollbar-width: none;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .dots li.active {
+        width: 20px;
+        height: 7px;
+        margin: 8px;
+    }
+
+    .dots li {
+        width: 20px;
+        height: 7px;
+        margin: 8px;
+    }
+
+    .models .list img {
+        margin: 0 20vw;
+        max-width: 100vw;   
+        object-fit: cover;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .models .list img {
+        margin: 0 24px;
     }
 }

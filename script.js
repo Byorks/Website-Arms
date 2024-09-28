@@ -86,32 +86,37 @@ dotsBanner.forEach ((li,key) => {
 
 // Slider Models
 /* Precisa corrigir o next */
-let list = document.querySelector('.models .slider .list');
-let items = document.querySelectorAll('.models .slider .list .item');
-let dots = document.querySelectorAll('.models .dots li');
+const SliderModels = () => {
+        
+    let list = document.querySelector('.models .slider .list');
+    let items = document.querySelectorAll('.models .slider .list .item');
+    let dots = document.querySelectorAll('.models .dots li');
 
-let active = 0;
-let lengthItems = items.length - 1;
+    let active = 0;
+    let lengthItems = items.length - 1;
 
-// let refreshSlider = setInterval(()=> {next.click()}, 3000)
+    // let refreshSlider = setInterval(()=> {next.click()}, 3000)
 
-const reloadSlider = () => {
-    let checkLeft = items[active].offsetLeft;
-    list.style.left = -checkLeft + 'px';
+    const reloadSlider = () => {
+        let checkLeft = items[active].offsetLeft;
+        list.style.left = -checkLeft + 'px';
 
-    let lastActiveDot = document.querySelector('.models .dots li.active');
-    lastActiveDot.classList.remove('active');
-    dots[active].classList.add('active');
-    // clearInterval(refreshSlider);
-    // refreshSlider = setInterval(()=> {next.click()}, 3000)
+        let lastActiveDot = document.querySelector('.models .dots li.active');
+        lastActiveDot.classList.remove('active');
+        dots[active].classList.add('active');
+        // clearInterval(refreshSlider);
+        // refreshSlider = setInterval(()=> {next.click()}, 3000)
+    }
+
+    dots.forEach ((li,key) => {
+        li.addEventListener('click', function(){
+            active = key;
+            reloadSlider();
+        })
+    })
 }
 
-dots.forEach ((li,key) => {
-    li.addEventListener('click', function(){
-        active = key;
-        reloadSlider();
-    })
-})
+SliderModels();
 
 // Slider Clothes
 
@@ -202,3 +207,51 @@ const loadAccordion = () => {
     });
 }
 
+// Reponsivo
+const moveImagesForSmallScreens = () => {
+    const mediaQuery = window.matchMedia('(max-width: 450px)');
+
+    if (mediaQuery.matches) {
+        const photoSlidesModels = document.querySelectorAll('.models .photo-slide');
+        const dotsModels = document.querySelector('.models .dots');
+
+        photoSlidesModels.forEach(photoSlide => {
+            // const parentOfParent = photoSlide.parentNode.parentNode;
+            const images = photoSlide.querySelectorAll('img');
+
+           
+
+            for (i = 1; i < images.length; i++) {
+                console.log('criei li')
+                let newLi = document.createElement('li');
+
+                
+                dotsModels.appendChild(newLi);
+            }
+
+            images.forEach(image => {
+                const newDiv = document.createElement('div');
+                newDiv.classList.add('item');
+
+                newDiv.appendChild(image);
+                
+                // Primeiro parametro quem vamos ínserir, segundo é onde vamos ínserir
+                photoSlide.parentNode.parentNode.insertBefore(newDiv, photoSlide.parentNode);
+                
+            });
+            
+            photoSlide.parentNode.remove();
+
+        });
+    }
+}
+
+window.addEventListener('load', () => {
+    moveImagesForSmallScreens();
+    SliderModels();
+});
+
+window.addEventListener('resize', () => {
+    moveImagesForSmallScreens();
+    SliderModels();
+});
