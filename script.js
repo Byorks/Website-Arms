@@ -85,8 +85,9 @@ dotsBanner.forEach ((li,key) => {
 
 
 // Slider Models
+
 /* Precisa corrigir o next */
-const SliderModels = () => {
+const sliderModels = () => {
         
     let list = document.querySelector('.models .slider .list');
     let items = document.querySelectorAll('.models .slider .list .item');
@@ -116,7 +117,7 @@ const SliderModels = () => {
     })
 }
 
-SliderModels();
+sliderModels();
 
 // Slider Clothes
 
@@ -208,50 +209,84 @@ const loadAccordion = () => {
 }
 
 // Reponsivo
+
+let originalStructure = [];
+
+const saveOriginalStructure = () => {
+    let photoSlidesModels = document.querySelectorAll('.models .photo-slide');
+    originalStructure = [];
+
+    photoSlidesModels.forEach (photoSlide => {
+        originalStructure.push(photoSlide.parentNode.outerHTML);
+    });
+}
+
+const restoreOriginalStructure = () => {
+    if (originalStructure.length > 0) {
+        let sliderList= document.querySelector('.models .slider .list');
+        
+        sliderList.innerHTML = '';
+
+        originalStructure.forEach((structure) => {
+            sliderList.insertAdjacentHTML('beforeend', structure);
+        });
+
+        // let dotList = document.querySelector('.models .dots');
+        // let dotLi = dotList.querySelectorAll('li');
+        let dotLi = document.querySelectorAll('.models .dots li');
+        for (i = 0; i < 6; i++) {
+            if (dotLi.length > 3) {
+                dotLi[i].remove();
+            }
+        }
+        let lastActiveDot = document.querySelector('.models .dots li.active');
+        if (lastActiveDot === null) {
+            dotLi[0].classList.add("active");
+        }
+        
+    }
+}
+
 const moveImagesForSmallScreens = () => {
     const mediaQuery = window.matchMedia('(max-width: 450px)');
 
     if (mediaQuery.matches) {
-        const photoSlidesModels = document.querySelectorAll('.models .photo-slide');
+        let photoSlidesModels = document.querySelectorAll('.models .photo-slide');
         const dotsModels = document.querySelector('.models .dots');
 
         photoSlidesModels.forEach(photoSlide => {
             // const parentOfParent = photoSlide.parentNode.parentNode;
             const images = photoSlide.querySelectorAll('img');
 
-           
-
+            // Criando dots
             for (i = 1; i < images.length; i++) {
                 console.log('criei li')
                 let newLi = document.createElement('li');
-
-                
                 dotsModels.appendChild(newLi);
             }
 
             images.forEach(image => {
                 const newDiv = document.createElement('div');
                 newDiv.classList.add('item');
-
                 newDiv.appendChild(image);
-                
                 // Primeiro parametro quem vamos ínserir, segundo é onde vamos ínserir
                 photoSlide.parentNode.parentNode.insertBefore(newDiv, photoSlide.parentNode);
-                
             });
             
             photoSlide.parentNode.remove();
 
         });
+
+        sliderModels();
+    } else {
+        restoreOriginalStructure();
+        sliderModels();
     }
 }
 
 window.addEventListener('load', () => {
+    saveOriginalStructure();
     moveImagesForSmallScreens();
-    SliderModels();
 });
 
-window.addEventListener('resize', () => {
-    moveImagesForSmallScreens();
-    SliderModels();
-});
+window.addEventListener('resize', moveImagesForSmallScreens);
