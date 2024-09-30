@@ -153,7 +153,7 @@ dotsClothes.forEach ((li,key) => {
 const loadFaq = (faqList) => {
     let containerFaq = document.querySelector(".perguntas");
 
-    let template = ""
+    let template = `<h2>Ficou Alguma Dúvida?</h2>`
 
     faqList.forEach( faq => {
         template += ` 
@@ -248,7 +248,7 @@ const restoreOriginalStructure = () => {
 }
 
 const moveImagesForSmallScreens = () => {
-    const mediaQuery = window.matchMedia('(max-width: 450px)');
+    const mediaQuery = window.matchMedia('(max-width: 765px)');
 
     if (mediaQuery.matches) {
         let photoSlidesModels = document.querySelectorAll('.models .photo-slide');
