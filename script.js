@@ -1,3 +1,40 @@
+// Open Close Menu
+let menu = document.getElementById('menu');
+let iconBars = document.getElementById('icon-bars');
+let iconX = document.getElementById('icon-x');
+
+function openCloseMenu(){
+    // Menu fechado - tem a classe menu-fechado
+    // Menu aberto - não tem a classe menu-fechado
+
+    // Alterna a classe "menu-fechado" no menu
+    // menu.classList.toggle()
+    
+    // Se o menu contem a classe menu-fechado
+    if ( menu.classList.contains("menu-closed") ){
+        // Abrir o menu - tirar a classe menu-fechado
+        menu.classList.remove("menu-closed");
+
+        // Mostrar icone barras | inLine é o padrão para mostrar o svg
+        iconBars.style.display = "none";
+
+        // Esconder o icone do X
+        iconX.style.display = "inLine";
+
+    }
+    else {
+        // Fechar o menu - adicionar a classe menu-fechado
+        menu.classList.add("menu-closed");
+
+        // Mostrar o icone do X
+        iconX.style.display = "none";
+
+        // Esconder o icone do barras
+        iconBars.style.display = "inLine";
+    }
+}
+
+
 // Tab Section
 const tabs = document.querySelectorAll('.tab-btn');
 const allContent = document.querySelectorAll('.content');

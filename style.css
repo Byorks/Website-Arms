@@ -112,7 +112,7 @@ header {
     margin: 0 auto;
 }
 
-#header nav {
+.menu {
     width: 575px;
 
     display: flex;
@@ -120,12 +120,12 @@ header {
     align-items: center;
 }
 
-#header #logo-header {
+.menu #logo-header {
     width: 80px;
     height: 70px;
 }
 
-#header a {
+.menu a {
     width: 128px;
     height: 44px;
 
@@ -140,11 +140,25 @@ header {
     transition: 500ms;
 }
 
-#header a:hover {
+.menu a:hover {
     background: #F6F6F6;
 
     font-family: 'Open Sans Bold';
 }
+
+/* Classe para deixar o menu esconndido*/
+.menu-closed {
+    display: none;
+}
+
+#icon-bars {
+    display: none;
+}
+
+#header button {
+    display: none;
+}
+
 /* 
 main {
     height: calc(100vh - 115px);
@@ -967,6 +981,11 @@ footer {
 }
 
 @media screen and (max-width: 1200px) {
+    
+    #header button {
+        display: none;
+    }
+
     .line {
         left: 57px;
     }
@@ -1081,6 +1100,41 @@ footer {
 
 
 @media screen and (max-width: 900px) {
+    #header {
+        position: relative;
+    }
+
+    #header button {
+        display: unset;
+    }
+
+    .menu {
+        width: 320px;
+        height: 436px;
+
+        padding: 91px 0;
+
+        background-color: #fff;
+
+        flex-direction: column;
+        gap: 24px;
+
+        position: absolute;
+        top: 61px;
+
+        z-index: 2;
+    }
+
+    .menu a {
+        width: 80%;
+        height: 62px;
+        font-size: 1rem;
+    }
+
+    .menu a:hover {
+        width: 100%;
+    }
+
     .content-box {
         padding: 20px 0;
     }
@@ -1217,9 +1271,31 @@ footer {
 }
 
 @media screen and (max-width: 550px) {
+    .menu {
+        width: 100%;
+    }
+
     .slider-category {
         overflow-y: auto;
         scrollbar-width: none;
+    }
+
+    .history {
+        flex-wrap: wrap;
+    }
+
+    .history p {
+        width: 100%;
+
+        margin-bottom: 12px;
+    }
+
+    .history:nth-child(3) {
+        flex-direction: column-reverse;
+    }
+
+    .photo-arms {
+        width: 100%;
     }
 }
 
