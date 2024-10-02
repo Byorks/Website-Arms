@@ -185,8 +185,6 @@ dotsClothes.forEach ((li,key) => {
 })
 
 // Render questions 
-
-
 const loadFaq = (faqList) => {
     let containerFaq = document.querySelector(".perguntas");
 
@@ -246,7 +244,6 @@ const loadAccordion = () => {
 }
 
 // Reponsivo
-
 let originalStructure = [];
 
 const saveOriginalStructure = () => {
@@ -326,4 +323,25 @@ window.addEventListener('load', () => {
     moveImagesForSmallScreens();
 });
 
+// Pattern Add
 window.addEventListener('resize', moveImagesForSmallScreens);
+
+function checkWidth() {
+    const width = window.innerWidth;
+    const items = document.querySelectorAll('.item-desc');
+    
+    items.forEach(item => {
+        const patternExists = item.querySelector('.pattern');
+        
+        if (width <= 650 && !patternExists) {
+            const newPattern = document.createElement('div');
+            newPattern.classList.add('pattern');
+            item.appendChild(newPattern);
+        } else if (width > 650 && patternExists) {
+            patternExists.remove();
+        }
+    });
+}
+
+window.addEventListener('resize', checkWidth);
+window.addEventListener('DOMContentLoaded', checkWidth);
