@@ -1303,11 +1303,13 @@ footer {
 }
 
 @media screen and (max-width: 650px) {
+
     .pattern:nth-of-type(1) {
         display: none;
     }
 
     .bg-icons {
+        position: initial;
         background-color: #fff;
     }
 
@@ -1319,17 +1321,26 @@ footer {
 
     .item-desc {
         width: 80%;
-        height: 280px;
+        aspect-ratio: 1 /1;
         background-color: var(--rosa-escuro);
         align-items: center;
         gap: 12px;
 
         position: relative;
+        overflow: hidden;
     }
 
-    .item-desc .pattern {
-        right: -200px;
+    .bg-icons .pattern:last-child {
+       right: -800px;
     }
+   
+    .bg-icons .item-desc .pattern {
+        right: 68%;
+        top: 100px;
+        transform: scaleX(-1);
+        position: absolute;
+        background-size: cover;
+    } 
     
     .description-text {
         width: 75%;
@@ -1339,6 +1350,10 @@ footer {
 
     .description-text img {
         width: 98px;
+    }
+
+    #cto-1 {
+        color: var(--rosa-escuro);
     }
 }
 
@@ -1350,18 +1365,32 @@ footer {
     .slider-category {
         overflow-y: auto;
         scrollbar-width: none;
-    }
-
+    }   
     .contato {
         background-color: #fff;
         box-shadow: none;
     }
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 465px) {
+    .description-service {
+        width: 90%;
+    }
 
+    .bg-icons .item-desc .pattern {
+        top: 28%;
+    } 
 }
 
 @media screen and (max-width: 350px) {
+    .description-service {
+        width: 100%;
+    }
 
+    .bg-icons .item-desc .pattern {
+        top: 45%;
+    }
+    .description-text img {
+        width: 64px;
+    }
 }
