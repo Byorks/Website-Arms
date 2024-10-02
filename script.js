@@ -346,14 +346,14 @@ function checkWidth() {
             patternExists.remove();
         }
     });
-
-    existingPatterns.forEach(pattern => {
-        if (width <= 650) {
-            pattern.style.display = 'none';  // Esconde os padrões existentes
-        } else {
-            pattern.style.display = '';  // Mostra os padrões novamente
-        }
-        });
+    // Não  deu certo
+    // existingPatterns.forEach(pattern => {
+    //     if (width <= 650) {
+    //         pattern.style.display = 'none';  // Esconde os padrões existentes
+    //     } else {
+    //         pattern.style.display = '';  // Mostra os padrões novamente
+    //     }
+    //     });
 }
 
 window.addEventListener('resize', checkWidth);

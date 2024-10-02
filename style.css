@@ -1304,6 +1304,10 @@ footer {
 }
 
 @media screen and (max-width: 650px) {
+    .existing-pattern {
+        display: none;
+    }
+    
     .bg-icons {
         position: initial;
         background-color: #fff;
