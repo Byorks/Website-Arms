@@ -9,7 +9,7 @@ function openCloseMenu(){
 
     // Alterna a classe "menu-fechado" no menu
     // menu.classList.toggle()
-    
+
     // Se o menu contem a classe menu-fechado
     if ( menu.classList.contains("menu-closed") ){
         // Abrir o menu - tirar a classe menu-fechado
@@ -49,24 +49,24 @@ tabs.forEach((tab, index) => {
 
         let line = document.querySelector('.line');
         let tabActive = document.querySelector('.tab-btn:nth-child(2)');
-        
+
         line.style.width = e.target.offsetWidth + "px";
         line.style.left = e.target.offsetLeft + "px";
-        
+
         // Removendo de todos os conteúdos o status de ativo
         allContent.forEach(content =>{content.classList.remove('active')});
         // Adicionando apenas a um que foi o clicado a classe "ativa"
         allContent[index].classList.add('active');
-        
+
         // let photoCategory = document.querySelectorAll('photo-category');
-        
+
         if( index == 1) {
             line.style.background = "#5371B3";
             tabActive.style.color = "#5371B3";
-            
+
             // photoCategory.forEach(photo => {
             //     photo.style.borderBottom = "5px solid #5371B3";
-                
+
             // });
         }
         else {
@@ -76,7 +76,7 @@ tabs.forEach((tab, index) => {
     })
 })
 
-// Header 
+// Header
 window.addEventListener('scroll', function(){
     let categorySection = this.document.getElementById('category');
     let header = this.document.getElementById('header');
@@ -125,7 +125,7 @@ dotsBanner.forEach ((li,key) => {
 
 /* Precisa corrigir o next */
 const sliderModels = () => {
-        
+
     let list = document.querySelector('.models .slider .list');
     let items = document.querySelectorAll('.models .slider .list .item');
     let dots = document.querySelectorAll('.models .dots li');
@@ -158,51 +158,55 @@ sliderModels();
 
 // Slider Clothes
 
-let listClothes = document.querySelector('.carrossel-products .slider .list');
-let itemsClothes = document.querySelectorAll('.carrossel-products .slider .list .item');
-let dotsClothes = document.querySelectorAll('.carrossel-products .dots li');
+const sliderClothes = () => {
+    let listClothes = document.querySelector('.carrossel-products .slider .list');
+    let itemsClothes = document.querySelectorAll('.carrossel-products .slider .list .item');
+    let dotsClothes = document.querySelectorAll('.carrossel-products .dots li');
 
-let activeClothes = 0;
-let lengthItemsClothes = itemsClothes.length - 1;
+    let activeClothes = 0;
+    let lengthItemsClothes = itemsClothes.length - 1;
 
 
-const reloadSliderClothes = () => {
-    let checkLeftClothes = itemsClothes[active].offsetLeft;
-    listClothes.style.left = -checkLeftClothes + 'px';
+    const reloadSliderClothes = () => {
+        let checkLeftClothes = itemsClothes[active].offsetLeft;
+        listClothes.style.left = -checkLeftClothes + 'px';
 
-    let lastActiveDotClothes = document.querySelector('.carrossel-products .slider .dots li.active');
-    lastActiveDotClothes.classList.remove('active');
-    dotsClothes[active].classList.add('active');
-    clearInterval(refreshSlider);
-    refreshSlider = setInterval(()=> {next.click()}, 3000)
+        let lastActiveDotClothes = document.querySelector('.carrossel-products .slider .dots li.active');
+        lastActiveDotClothes.classList.remove('active');
+        dotsClothes[active].classList.add('active');
+        clearInterval(refreshSlider);
+        refreshSlider = setInterval(()=> {next.click()}, 3000)
+    }
+
+    dotsClothes.forEach ((li,key) => {
+        li.addEventListener('click', function(){
+            active = key;
+            reloadSliderClothes();
+        })
+    })
 }
 
-dotsClothes.forEach ((li,key) => {
-    li.addEventListener('click', function(){
-        active = key;
-        reloadSliderClothes();
-    })
-})
+sliderClothes();
 
-// Render questions 
+// Render questions
 const loadFaq = (faqList) => {
     let containerFaq = document.querySelector(".perguntas");
 
     let template = `<h2>Ficou Alguma Dúvida?</h2>`
 
     faqList.forEach( faq => {
-        template += ` 
+        template += `
             <div class="faq">
                 <div class="question">
                     <h3>${ faq.question }</h3>
-                    
+
                     <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect width="32" height="32" fill="white"/>
                         <path d="M9.5 7.5L16 16L22.5 7.5" stroke="#9F3D56"/>
                         <path d="M9.5 16L16 24.5L22.5 16" stroke="#9F3D56"/>
                     </svg>
-                        
-                            
+
+
                 </div>
                 <div class="answer">
                     <p>
@@ -214,7 +218,7 @@ const loadFaq = (faqList) => {
     })
 
     containerFaq.innerHTML = template;
-} 
+}
 
 // Loading question from API
 const importQuestionAnswer = () => {
@@ -235,7 +239,7 @@ const loadAccordion = () => {
     const faqs = document.querySelectorAll('.faq');
 
     console.log(faqs)
-    
+
     faqs.forEach((faq) => {
         faq.addEventListener("click", () => {
             faq.classList.toggle("active");
@@ -258,7 +262,7 @@ const saveOriginalStructure = () => {
 const restoreOriginalStructure = () => {
     if (originalStructure.length > 0) {
         let sliderList= document.querySelector('.models .slider .list');
-        
+
         sliderList.innerHTML = '';
 
         originalStructure.forEach((structure) => {
@@ -277,7 +281,7 @@ const restoreOriginalStructure = () => {
         if (lastActiveDot === null) {
             dotLi[0].classList.add("active");
         }
-        
+
     }
 }
 
@@ -306,7 +310,7 @@ const moveImagesForSmallScreens = () => {
                 // Primeiro parametro quem vamos ínserir, segundo é onde vamos ínserir
                 photoSlide.parentNode.parentNode.insertBefore(newDiv, photoSlide.parentNode);
             });
-            
+
             photoSlide.parentNode.remove();
 
         });
@@ -329,10 +333,10 @@ window.addEventListener('resize', moveImagesForSmallScreens);
 function checkWidth() {
     const width = window.innerWidth;
     const items = document.querySelectorAll('.item-desc');
-    
+
     items.forEach(item => {
         const patternExists = item.querySelector('.pattern');
-        
+
         if (width <= 650 && !patternExists) {
             const newPattern = document.createElement('div');
             newPattern.classList.add('pattern');
@@ -345,3 +349,145 @@ function checkWidth() {
 
 window.addEventListener('resize', checkWidth);
 window.addEventListener('DOMContentLoaded', checkWidth);
+
+
+// Carrossel Products
+
+
+
+ // Função para reorganizar os photo-slides com dois slides e duas imagens em cada
+ function reorganizarSlides() {
+    const slider = document.querySelector('.carrossel-products .slider .list');
+    const items = slider.querySelectorAll('.carrossel-products .item');
+    const dotsContainer = document.querySelector('.carrossel-products .dots');
+    
+    let allImages = [];
+
+    // Coleta todas as imagens de todos os slides
+    items.forEach(item => {
+        const images = item.querySelectorAll('.carrossel-products .photo-category');
+        images.forEach(img => allImages.push(img));
+    });
+
+    // Limpa os itens e os dots antigos
+    slider.innerHTML = '';
+    dotsContainer.innerHTML = '';
+
+    // Cria novos itens com dois photo-slides, cada um contendo duas imagens
+    for (let i = 0; i < allImages.length; i += 4) {
+        const newItem = document.createElement('div');
+        newItem.classList.add('item');
+        if (i === 0) newItem.classList.add('active');  // Marca o primeiro item como ativo
+
+        for (let j = 0; j < 2; j++) {
+            const newSlide = document.createElement('div');
+            newSlide.classList.add('photo-slide');
+
+            // Adiciona até duas imagens por slide
+            for (let k = 0; k < 2; k++) {
+                const imgIndex = i + j * 2 + k;
+                if (allImages[imgIndex]) {
+                    newSlide.appendChild(allImages[imgIndex]);
+                }
+            }
+
+            newItem.appendChild(newSlide);
+        }
+
+        // Adiciona o novo item ao slider
+        slider.appendChild(newItem);
+
+        // Adiciona um novo dot para cada item criado
+        const newDot = document.createElement('li');
+        if (i === 0) newDot.classList.add('active');  // Marca o primeiro dot como ativo
+        dotsContainer.appendChild(newDot);
+    }
+}
+
+// Função para restaurar o layout original
+function restaurarLayoutOriginal() {
+    const slider = document.querySelector('.carrossel-products .slider .list');
+    const dotsContainer = document.querySelector('.carrossel-products .dots');
+
+    // Layout original dos itens (sem reorganização)
+    slider.innerHTML = `
+        <div class="item active">
+            <div class="photo-slide">
+                <img class="photo-category" src="https://unsplash.it/640/400?image=92" alt="">
+                <img class="photo-category" src="https://unsplash.it/640/400?image=212" alt="">
+                <img class="photo-category" src="https://unsplash.it/640/400?image=111" alt="">
+                <img class="photo-category" src="https://unsplash.it/640/400?image=32" alt="">
+            </div>
+            <div class="photo-slide">
+                <img class="photo-category" src="https://unsplash.it/640/400?image=132" alt="">
+                <img class="photo-category" src="https://unsplash.it/640/400?image=112" alt="">
+                <img class="photo-category" src="https://unsplash.it/640/400?image=222" alt="">
+                <img class="photo-category" src="https://unsplash.it/640/400?image=32" alt="">
+            </div>
+        </div>
+        <div class="item">
+            <div class="photo-slide">
+                <img class="photo-category" src="https://unsplash.it/640/400?image=31" alt="">
+                <img class="photo-category" src="https://unsplash.it/640/400?image=66" alt="">
+                <img class="photo-category" src="https://unsplash.it/640/400?image=90" alt="">
+                <img class="photo-category" src="https://unsplash.it/640/400?image=198" alt="">
+            </div>
+            <div class="photo-slide">
+                <img class="photo-category" src="https://unsplash.it/640/400?image=80" alt="">
+                <img class="photo-category" src="https://unsplash.it/640/400?image=74" alt="">
+                <img class="photo-category" src="https://unsplash.it/640/400?image=42" alt="">
+                <img class="photo-category" src="https://unsplash.it/640/400?image=33" alt="">
+            </div>
+        </div>
+        <div class="item">
+            <div class="photo-slide">
+                <img class="photo-category" src="https://unsplash.it/640/400?image=41" alt="">
+                <img class="photo-category" src="https://unsplash.it/640/400?image=66" alt="">
+                <img class="photo-category" src="https://unsplash.it/640/400?image=90" alt="">
+                <img class="photo-category" src="https://unsplash.it/640/400?image=63" alt="">
+            </div>
+            <div class="photo-slide">
+                <img class="photo-category" src="https://unsplash.it/640/400?image=84" alt="">
+                <img class="photo-category" src="https://unsplash.it/640/400?image=54" alt="">
+                <img class="photo-category" src="https://unsplash.it/640/400?image=123" alt="">
+                <img class="photo-category" src="https://unsplash.it/640/400?image=235" alt="">
+            </div>
+        </div>
+    `;
+
+    dotsContainer.innerHTML = `
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+    `;
+}
+
+// Função para alternar entre as versões do carrossel
+function checkScreenSize() {
+    const screenWidth = window.innerWidth;
+    if (screenWidth <= 650) {
+        reorganizarSlides();
+    } else {
+        restaurarLayoutOriginal();
+    }
+}
+
+// Executa a verificação ao carregar a página e ao redimensionar a janela
+window.addEventListener('load', () => {
+    checkScreenSize(), 
+    sliderClothes();
+});
+
+window.addEventListener('resize', () => {
+    checkScreenSize(), 
+    sliderClothes();
+});
+
+
+window.addEventListener('resize', function() {
+    // Função que força o carrossel a reposicionar corretamente
+    // Isso pode variar dependendo de como você implementou o carrossel.
+    // Se estiver usando uma biblioteca de carrossel, pode ter um método de 'recalcular' ou 'update'
+    const carousel = document.querySelectorAll('.slider');
+    carousel.scrollTo(0, 0); // Exemplo simples, pode variar de acordo com o seu carrossel
+});
