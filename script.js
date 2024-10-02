@@ -327,12 +327,13 @@ window.addEventListener('load', () => {
     moveImagesForSmallScreens();
 });
 
-// Pattern Add
 window.addEventListener('resize', moveImagesForSmallScreens);
 
+// Pattern Add
 function checkWidth() {
     const width = window.innerWidth;
     const items = document.querySelectorAll('.item-desc');
+    const existingPatterns = document.querySelectorAll('.existing-pattern');
 
     items.forEach(item => {
         const patternExists = item.querySelector('.pattern');
@@ -345,6 +346,14 @@ function checkWidth() {
             patternExists.remove();
         }
     });
+
+    existingPatterns.forEach(pattern => {
+        if (width <= 650) {
+            pattern.style.display = 'none';  // Esconde os padrões existentes
+        } else {
+            pattern.style.display = '';  // Mostra os padrões novamente
+        }
+        });
 }
 
 window.addEventListener('resize', checkWidth);

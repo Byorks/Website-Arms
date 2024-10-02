@@ -809,6 +809,7 @@ footer {
     justify-content: center;
     align-items: center;
     gap: 32px;
+    flex-wrap: wrap;
 }
 
 .container-icon h2 {
@@ -1303,11 +1304,6 @@ footer {
 }
 
 @media screen and (max-width: 650px) {
-
-    .pattern:nth-of-type(1) {
-        display: none;
-    }
-
     .bg-icons {
         position: initial;
         background-color: #fff;
