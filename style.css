@@ -1244,6 +1244,24 @@ footer {
         right: 0;
     }
 
+    .history {
+        flex-wrap: wrap;
+    }
+
+    .history p {
+        width: 100%;
+
+        margin-bottom: 12px;
+    }
+
+    .history:nth-child(3) {
+        flex-direction: column-reverse;
+    }
+
+    .photo-arms {
+        width: 100%;
+    }
+
     .contato {
         flex-direction: column;
         gap: 12px;
@@ -1282,8 +1300,36 @@ footer {
     #contato button:nth-child(2) {
         width: 100%;
     }
+}
 
+@media screen and (max-width: 650px) {
+    .bg-icons {
+        background-color: #fff;
+    }
 
+    .description-service {
+        flex-direction: column;
+        align-items: center;
+        gap: 32px;
+    }
+
+    .item-desc {
+        width: 80%;
+        height: 280px;
+        background-color: var(--rosa-escuro);
+        align-items: center;
+        gap: 12px;
+    }
+    
+    .description-text {
+        width: 80%;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .description-text img {
+        width: 98px;
+    }
 }
 
 @media screen and (max-width: 550px) {
@@ -1296,23 +1342,6 @@ footer {
         scrollbar-width: none;
     }
 
-    .history {
-        flex-wrap: wrap;
-    }
-
-    .history p {
-        width: 100%;
-
-        margin-bottom: 12px;
-    }
-
-    .history:nth-child(3) {
-        flex-direction: column-reverse;
-    }
-
-    .photo-arms {
-        width: 100%;
-    }
     .contato {
         background-color: #fff;
         box-shadow: none;
