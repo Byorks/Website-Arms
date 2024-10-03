@@ -361,11 +361,8 @@ window.addEventListener('DOMContentLoaded', checkWidth);
 
 
 // Carrossel Products
-
-
-
  // Função para reorganizar os photo-slides com dois slides e duas imagens em cada
- function reorganizarSlides() {
+function reorganizarSlides() {
     const slider = document.querySelector('.carrossel-products .slider .list');
     const items = slider.querySelectorAll('.carrossel-products .item');
     const dotsContainer = document.querySelector('.carrossel-products .dots');
@@ -491,13 +488,4 @@ window.addEventListener('resize', () => {
 
     checkScreenSize(), 
     sliderClothes();
-});
-
-
-window.addEventListener('resize', function() {
-    // Função que força o carrossel a reposicionar corretamente
-    // Isso pode variar dependendo de como você implementou o carrossel.
-    // Se estiver usando uma biblioteca de carrossel, pode ter um método de 'recalcular' ou 'update'
-    const carousel = document.querySelectorAll('.slider');
-    carousel.scrollTo(0, 0); // Exemplo simples, pode variar de acordo com o seu carrossel
 });
