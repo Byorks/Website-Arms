@@ -548,6 +548,7 @@ window.addEventListener('load', () => {
 });
 
 window.addEventListener('resize', () => {
+
     checkScreenSize(), 
     sliderClothes();
 });
