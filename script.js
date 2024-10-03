@@ -330,7 +330,7 @@ window.addEventListener('load', () => {
 // Pattern Add
 window.addEventListener('resize', moveImagesForSmallScreens);
 
-function checkWidth() {
+function addingPattern() {
     const width = window.innerWidth;
     const items = document.querySelectorAll('.item-desc');
 
@@ -347,8 +347,8 @@ function checkWidth() {
     });
 }
 
-window.addEventListener('resize', checkWidth);
-window.addEventListener('DOMContentLoaded', checkWidth);
+window.addEventListener('resize', addingPattern);
+window.addEventListener('DOMContentLoaded', addingPattern);
 
 
 // Carrossel Products
@@ -398,72 +398,6 @@ function reorganizarSlides() {
         const newDot = document.createElement('li');
         if (i === 0) newDot.classList.add('active');  // Marca o primeiro dot como ativo
         dotsContainer.appendChild(newDot);
-    }
-}
-// Função para reorganizar os photo-slides com uma imagem e criar novos .item com dois slides cada
-function reorganizarSlidesOne() {
-    const slider = document.querySelector('.carrossel-products .slider .list');
-    const items = slider.querySelectorAll('.carrossel-products .item');
-    const dotsContainer = document.querySelector('.carrossel-products .dots');
-    
-    let allImages = [];
-
-    // Coleta todas as imagens de todos os slides
-    items.forEach(item => {
-        const images = item.querySelectorAll('.carrossel-products .photo-category');
-        images.forEach(img => allImages.push(img));
-    });
-
-    // Limpa os itens e os dots antigos
-    slider.innerHTML = '';
-    dotsContainer.innerHTML = '';
-
-    // Cria novos itens com dois photo-slides, cada um contendo duas imagens
-    for (let i = 0; i < allImages.length; i += 4) {
-        const newItem = document.createElement('div');
-        newItem.classList.add('item');
-        if (i === 0) newItem.classList.add('active');  // Marca o primeiro item como ativo
-
-        for (let j = 0; j < 2; j++) {
-            const newSlide = document.createElement('div');
-            newSlide.classList.add('photo-slide');
-
-            // Adiciona até duas imagens por slide
-            for (let k = 0; k < 2; k++) {
-                const imgIndex = i + j * 2 + k;
-                if (allImages[imgIndex]) {
-                    newSlide.appendChild(allImages[imgIndex]);
-                }
-            }
-
-            newItem.appendChild(newSlide);
-        }
-
-        // Adiciona o novo item ao slider
-        slider.appendChild(newItem);
-
-        // Adiciona um novo dot para cada item criado
-        const newDot = document.createElement('li');
-        if (i === 0) newDot.classList.add('active');  // Marca o primeiro dot como ativo
-        dotsContainer.appendChild(newDot);
-    }
-
-    // Se sobrou algum slide (menos de 2), cria um último .item
-    if (tempSlides.length > 0) {
-        const newItemDiv = document.createElement('div');
-        newItemDiv.classList.add('item');
-        tempSlides.forEach(slide => newItemDiv.appendChild(slide));
-        sliderList.appendChild(newItemDiv);
-
-        // Cria um novo dot para o novo item
-        const newDot = document.createElement('li');
-        dotsContainer.appendChild(newDot);
-    }
-
-    // Define o primeiro dot e item como ativo
-    if (sliderList.firstElementChild) {
-        sliderList.firstElementChild.classList.add('active');
-        dotsContainer.firstElementChild.classList.add('active');
     }
 }
 
@@ -531,12 +465,12 @@ function checkScreenSize() {
     if (screenWidth <= 650) {
         reorganizarSlides();
     } else if(screenWidth <= 450){
+        // Tem que fazer
         reorganizarSlidesOne()
     } else {
         restaurarLayoutOriginal();
     }
-    }
-   
+}
 
 // Executa a verificação ao carregar a página e ao redimensionar a janela
 window.addEventListener('load', () => {
