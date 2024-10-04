@@ -30,11 +30,11 @@
             /* height: 100%; */
         }
 
-        .mobile {
+        .SwiperBannerMobile {
             display: none;
         }
 
-        .desktop {
+        .SwiperBannerDesktop {
             display: block;
         }
 
@@ -79,12 +79,22 @@
             object-fit: cover;
         }
 
+
+
+
+
+        .swiper-slide {
+            margin-right: 20px !important;
+        }
+        
+        
+
         @media (max-width: 1000px) {
-            .mobile {
+            .SwiperBannerMobile {
                 display: block;
             }
 
-            .desktop {
+            .SwiperBannerDesktop {
                 display: none;
             }
 
@@ -94,7 +104,7 @@
 
 <body>
     <!-- Swiper -->
-    <div class="swiper mySwiper mobile">
+    <div class="swiper SwiperBanner SwiperBannerMobile">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
                 <img src="./Banner 1 Moblie.svg" alt="">
@@ -111,7 +121,7 @@
         <div class="swiper-pagination"></div>
     </div>
 
-    <div class="swiper mySwiper desktop">
+    <div class="swiper SwiperBanner SwiperBannerDesktop">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
                 <img src="./Banner 1.svg" alt="">
@@ -129,7 +139,7 @@
         <div class="swiper-pagination"></div>
     </div>
 
-    <div class="swiper mySwiper desktop">
+    <!-- <div class="swiper mySwiper desktop">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
                 <img src="./Banner 1.svg" alt="">
@@ -146,18 +156,62 @@
         <div class="swiper-pagination"></div>
     </div>
 
+ -->
+
+
+
+        <!-- Swiper -->
+    <div class="swiper SwiperCategoryDesktop">
+        <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <div>
+                <img src="https://unsplash.it/640/400?image=10" alt="">
+            </div>
+        </div>
+        <div class="swiper-slide">
+            <div>
+                <img src="https://unsplash.it/640/400?image=10" alt="">
+            </div>
+        </div>
+        <div class="swiper-slide">
+            <div>
+                <img src="https://unsplash.it/640/400?image=10" alt="">
+            </div>
+        </div>
+        <div class="swiper-slide">
+            <div>
+                <img src="https://unsplash.it/640/400?image=10" alt="">
+            </div>
+        </div>
+        
+
+        </div>
+        <div class="swiper-pagination" style="display: none;"></div>
+    </div>
+
+
+
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <!-- Initialize Swiper -->
     <script>
-        var swiper = new Swiper(".mySwiper", {
+        var swiper = new Swiper(".SwiperBanner", {
             spaceBetween: 30,
             pagination: {
                 el: ".swiper-pagination",
                 clickable: true,
             },
         });
+
+        var swiper2 = new Swiper(".SwiperCategoryDesktop", {
+            slidesPerView: 3,
+            spaceBetween: 30,
+            pagination: {
+              el: ".swiper-pagination",
+              clickable: true,
+            },
+          });
     </script>
 </body>
 
