@@ -34,6 +34,22 @@ function openCloseMenu(){
     }
 }
 
+const menuResponsive = () => {
+    const mediaQuery = window.matchMedia('(max-width: 900px)');
+    if (mediaQuery.matches) {
+        menu.classList.add("menu-closed");
+        iconX.style.display = "none";
+        iconBars.style.display = "inLine";
+    }else {
+        if(menu.classList.contains("menu-closed")){
+            menu.classList.remove("menu-closed");
+            iconX.style.display = "none";
+            iconBars.style.display = "inLine";
+        }
+    }
+}
+// window.addEventListener('resize', menuResponsive);
+// window.addEventListener('load', menuResponsive);
 
 // Tab Section
 const tabs = document.querySelectorAll('.tab-btn');
@@ -322,13 +338,12 @@ const moveImagesForSmallScreens = () => {
     }
 }
 
-window.addEventListener('load', () => {
-    saveOriginalStructure();
-    moveImagesForSmallScreens();
-});
+// window.addEventListener('load', () => {
 
-// Pattern Add
-window.addEventListener('resize', moveImagesForSmallScreens);
+// });
+
+// // Pattern Add
+// window.addEventListener('resize', );
 
 function addingPattern() {
     const width = window.innerWidth;
@@ -346,10 +361,6 @@ function addingPattern() {
         }
     });
 }
-
-window.addEventListener('resize', addingPattern);
-window.addEventListener('DOMContentLoaded', addingPattern);
-
 
 // Carrossel Products
  // Função para reorganizar os photo-slides com dois slides e duas imagens em cada
@@ -394,6 +405,52 @@ function reorganizarSlides() {
         // Adiciona o novo item ao slider
         slider.appendChild(newItem);
 
+        // Adiciona um novo dot para cada item criado
+        const newDot = document.createElement('li');
+        if (i === 0) newDot.classList.add('active');  // Marca o primeiro dot como ativo
+        dotsContainer.appendChild(newDot);
+    }
+}
+
+const reorganizarSlidesOne = () => {
+    const slider = document.querySelector('.carrossel-products .slider .list');
+    const items = slider.querySelectorAll('.carrossel-products .item');
+    const dotsContainer = document.querySelector('.carrossel-products .dots');
+    
+    let allImages = [];
+    
+    // Coleta todas as imagens de todos os slides
+    items.forEach(item => {
+        const images = item.querySelectorAll('.carrossel-products .photo-category');
+        images.forEach(img => allImages.push(img));
+    });
+    
+    // Limpa os itens e os dots antigos
+    slider.innerHTML = '';
+    dotsContainer.innerHTML = '';
+    
+    // Cria novos itens com dois photo-slides, cada um contendo uma imagem
+    for (let i = 0; i < allImages.length; i += 2) { // Incrementa de 2 em 2 para garantir 2 slides por item
+        const newItem = document.createElement('div');
+        newItem.classList.add('item');
+        if (i === 0) newItem.classList.add('active');  // Marca o primeiro item como ativo
+    
+        for (let j = 0; j < 2; j++) { // Cria 2 photo-slides por item
+            const newSlide = document.createElement('div');
+            newSlide.classList.add('photo-slide');
+    
+            // Adiciona apenas uma imagem por slide
+            const imgIndex = i + j;
+            if (allImages[imgIndex]) {
+                newSlide.appendChild(allImages[imgIndex]);
+            }
+    
+            newItem.appendChild(newSlide);
+        }
+    
+        // Adiciona o novo item ao slider
+        slider.appendChild(newItem);
+    
         // Adiciona um novo dot para cada item criado
         const newDot = document.createElement('li');
         if (i === 0) newDot.classList.add('active');  // Marca o primeiro dot como ativo
@@ -462,24 +519,33 @@ function restaurarLayoutOriginal() {
 // Função para alternar entre as versões do carrossel
 function checkScreenSize() {
     const screenWidth = window.innerWidth;
-    if (screenWidth <= 650) {
+
+    if (screenWidth > 650 ) {
+        restaurarLayoutOriginal()
+    }
+    else if (screenWidth <= 450) {
+        reorganizarSlidesOne();
+    }
+    else {
         reorganizarSlides();
-    } else if(screenWidth <= 450){
-        // Tem que fazer
-        reorganizarSlidesOne()
-    } else {
-        restaurarLayoutOriginal();
     }
 }
 
-// Executa a verificação ao carregar a página e ao redimensionar a janela
-window.addEventListener('load', () => {
-    checkScreenSize(), 
+
+document.addEventListener('DOMContentLoaded', () => {
+    checkScreenSize();
     sliderClothes();
+    menuResponsive();
+    saveOriginalStructure();
+    moveImagesForSmallScreens();
+    addingPattern();
 });
 
-window.addEventListener('resize', () => {
 
-    checkScreenSize(), 
+window.addEventListener('resize', () => {
+    checkScreenSize(); 
     sliderClothes();
+    moveImagesForSmallScreens();
+    addingPattern();
+    menuResponsive();
 });

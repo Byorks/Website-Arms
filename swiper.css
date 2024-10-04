@@ -13,6 +13,7 @@
 }
 
 .swiper-slide {
+    height: auto !important;
     text-align: center;
     font-size: 18px;
     background: #fff;
@@ -48,7 +49,7 @@
     background-color: #9F3D56 !important;
 }
 
-.swiper-slide {
+.category .swiper-slide {
     margin-right: 20px !important;
 }
 
