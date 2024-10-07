@@ -34,6 +34,20 @@ function openCloseMenu(){
     }
 }
 
+const menuResponsive = () => {
+    const mediaQuery = window.matchMedia('(max-width: 900px)');
+    if (mediaQuery.matches) {
+        menu.classList.add("menu-closed");
+        iconX.style.display = "none";
+        iconBars.style.display = "inLine";
+    }else {
+        if(menu.classList.contains("menu-closed")){
+            menu.classList.remove("menu-closed");
+            iconX.style.display = "none";
+            iconBars.style.display = "inLine";
+        }
+    }
+}
 
 // Tab Section
 const tabs = document.querySelectorAll('.tab-btn');
@@ -122,7 +136,6 @@ dotsBanner.forEach ((li,key) => {
 
 
 // Slider Models
-
 /* Precisa corrigir o next */
 const sliderModels = () => {
 
@@ -157,7 +170,6 @@ const sliderModels = () => {
 sliderModels();
 
 // Slider Clothes
-
 const sliderClothes = () => {
     let listClothes = document.querySelector('.carrossel-products .slider .list');
     let itemsClothes = document.querySelectorAll('.carrossel-products .slider .list .item');
@@ -171,7 +183,7 @@ const sliderClothes = () => {
         let checkLeftClothes = itemsClothes[active].offsetLeft;
         listClothes.style.left = -checkLeftClothes + 'px';
 
-        let lastActiveDotClothes = document.querySelector('.carrossel-products .slider .dots li.active');
+        let lastActiveDotClothes = document.querySelector('.carrossel-products .dots li.active');
         lastActiveDotClothes.classList.remove('active');
         dotsClothes[active].classList.add('active');
         clearInterval(refreshSlider);
@@ -322,15 +334,7 @@ const moveImagesForSmallScreens = () => {
     }
 }
 
-window.addEventListener('load', () => {
-    saveOriginalStructure();
-    moveImagesForSmallScreens();
-});
-
-// Pattern Add
-window.addEventListener('resize', moveImagesForSmallScreens);
-
-function checkWidth() {
+function addingPattern() {
     const width = window.innerWidth;
     const items = document.querySelectorAll('.item-desc');
 
@@ -346,10 +350,6 @@ function checkWidth() {
         }
     });
 }
-
-window.addEventListener('resize', checkWidth);
-window.addEventListener('DOMContentLoaded', checkWidth);
-
 
 // Carrossel Products
  // Função para reorganizar os photo-slides com dois slides e duas imagens em cada
@@ -400,70 +400,50 @@ function reorganizarSlides() {
         dotsContainer.appendChild(newDot);
     }
 }
-// Função para reorganizar os photo-slides com uma imagem e criar novos .item com dois slides cada
-function reorganizarSlidesOne() {
+
+const reorganizarSlidesOne = () => {
     const slider = document.querySelector('.carrossel-products .slider .list');
     const items = slider.querySelectorAll('.carrossel-products .item');
     const dotsContainer = document.querySelector('.carrossel-products .dots');
     
     let allImages = [];
-
+    
     // Coleta todas as imagens de todos os slides
     items.forEach(item => {
         const images = item.querySelectorAll('.carrossel-products .photo-category');
         images.forEach(img => allImages.push(img));
     });
-
+    
     // Limpa os itens e os dots antigos
     slider.innerHTML = '';
     dotsContainer.innerHTML = '';
-
-    // Cria novos itens com dois photo-slides, cada um contendo duas imagens
-    for (let i = 0; i < allImages.length; i += 4) {
+    
+    // Cria novos itens com dois photo-slides, cada um contendo uma imagem
+    for (let i = 0; i < allImages.length; i += 2) { // Incrementa de 2 em 2 para garantir 2 slides por item
         const newItem = document.createElement('div');
         newItem.classList.add('item');
         if (i === 0) newItem.classList.add('active');  // Marca o primeiro item como ativo
-
-        for (let j = 0; j < 2; j++) {
+    
+        for (let j = 0; j < 2; j++) { // Cria 2 photo-slides por item
             const newSlide = document.createElement('div');
             newSlide.classList.add('photo-slide');
-
-            // Adiciona até duas imagens por slide
-            for (let k = 0; k < 2; k++) {
-                const imgIndex = i + j * 2 + k;
-                if (allImages[imgIndex]) {
-                    newSlide.appendChild(allImages[imgIndex]);
-                }
+    
+            // Adiciona apenas uma imagem por slide
+            const imgIndex = i + j;
+            if (allImages[imgIndex]) {
+                newSlide.appendChild(allImages[imgIndex]);
             }
-
+    
             newItem.appendChild(newSlide);
         }
-
+    
         // Adiciona o novo item ao slider
         slider.appendChild(newItem);
-
+    
         // Adiciona um novo dot para cada item criado
         const newDot = document.createElement('li');
         if (i === 0) newDot.classList.add('active');  // Marca o primeiro dot como ativo
         dotsContainer.appendChild(newDot);
-    }
-
-    // Se sobrou algum slide (menos de 2), cria um último .item
-    if (tempSlides.length > 0) {
-        const newItemDiv = document.createElement('div');
-        newItemDiv.classList.add('item');
-        tempSlides.forEach(slide => newItemDiv.appendChild(slide));
-        sliderList.appendChild(newItemDiv);
-
-        // Cria um novo dot para o novo item
-        const newDot = document.createElement('li');
-        dotsContainer.appendChild(newDot);
-    }
-
-    // Define o primeiro dot e item como ativo
-    if (sliderList.firstElementChild) {
-        sliderList.firstElementChild.classList.add('active');
-        dotsContainer.firstElementChild.classList.add('active');
     }
 }
 
@@ -528,24 +508,33 @@ function restaurarLayoutOriginal() {
 // Função para alternar entre as versões do carrossel
 function checkScreenSize() {
     const screenWidth = window.innerWidth;
-    if (screenWidth <= 650) {
-        reorganizarSlides();
-    } else if(screenWidth <= 450){
-        reorganizarSlidesOne()
-    } else {
-        restaurarLayoutOriginal();
-    }
-    }
-   
 
-// Executa a verificação ao carregar a página e ao redimensionar a janela
-window.addEventListener('load', () => {
-    checkScreenSize(), 
+    if (screenWidth > 650 ) {
+        restaurarLayoutOriginal()
+    }
+    else if (screenWidth <= 450) {
+        reorganizarSlidesOne();
+    }
+    else {
+        reorganizarSlides();
+    }
+}
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    checkScreenSize();
     sliderClothes();
+    menuResponsive();
+    saveOriginalStructure();
+    moveImagesForSmallScreens();
+    addingPattern();
 });
 
-window.addEventListener('resize', () => {
 
-    checkScreenSize(), 
+window.addEventListener('resize', () => {
+    checkScreenSize(); 
     sliderClothes();
+    moveImagesForSmallScreens();
+    addingPattern();
+    menuResponsive();
 });
