@@ -48,8 +48,6 @@ const menuResponsive = () => {
         }
     }
 }
-// window.addEventListener('resize', menuResponsive);
-// window.addEventListener('load', menuResponsive);
 
 // Tab Section
 const tabs = document.querySelectorAll('.tab-btn');
@@ -138,7 +136,6 @@ dotsBanner.forEach ((li,key) => {
 
 
 // Slider Models
-
 /* Precisa corrigir o next */
 const sliderModels = () => {
 
@@ -173,7 +170,6 @@ const sliderModels = () => {
 sliderModels();
 
 // Slider Clothes
-
 const sliderClothes = () => {
     let listClothes = document.querySelector('.carrossel-products .slider .list');
     let itemsClothes = document.querySelectorAll('.carrossel-products .slider .list .item');
@@ -187,7 +183,7 @@ const sliderClothes = () => {
         let checkLeftClothes = itemsClothes[active].offsetLeft;
         listClothes.style.left = -checkLeftClothes + 'px';
 
-        let lastActiveDotClothes = document.querySelector('.carrossel-products .slider .dots li.active');
+        let lastActiveDotClothes = document.querySelector('.carrossel-products .dots li.active');
         lastActiveDotClothes.classList.remove('active');
         dotsClothes[active].classList.add('active');
         clearInterval(refreshSlider);
@@ -337,13 +333,6 @@ const moveImagesForSmallScreens = () => {
         sliderModels();
     }
 }
-
-// window.addEventListener('load', () => {
-
-// });
-
-// // Pattern Add
-// window.addEventListener('resize', );
 
 function addingPattern() {
     const width = window.innerWidth;

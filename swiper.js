@@ -1,4 +1,5 @@
 var swiper = new Swiper(".SwiperCategoryMobile", {
+    slidesPerView: 1,
     spaceBetween: 30,
     pagination: {
         el: ".swiper-pagination",
