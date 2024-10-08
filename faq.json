@@ -8,12 +8,15 @@
         "answer": "O prazo varia conforme a localidade de entrega do pedido."
     },
     {
-        "question": "Como posso rastrear a entrega",
+        "question": "Como posso rastrear a entrega?",
         "answer": "Assim que o produto é enviado, você receberá seu código de rastreio pela mensagem do WhatsApp, para que você possa acompanhar a entrega!"
     },
     {
         "question": "Qual é o horário de funcionamento?",
         "answer": "Segunda a sexta 08h ás 17h e sabádo 08h às 14h."
+    },
+    {
+        "question": "Posso parcelar a compra?",
+        "answer": "Sim, é possível parcelar em até 3x, em caso de um número maior de parcelas, será acrescido juros proporcional."
     }
-    
 ]
