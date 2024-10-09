@@ -891,6 +891,30 @@ footer {
     text-align: center;
 }
 
+.rect-white {
+    transition: ease-in-out 300ms;
+}
+
+a:hover .rect-white {
+    fill: #811B54;
+    transition: ease-in-out 300ms;
+}
+
+a:hover .logo-social path {
+    fill: white; /* Muda a cor do path para branco */
+}
+  
+a:hover .logo-social rect {
+    stroke: white; /* Muda a cor do stroke do rect para branco */
+}
+
+
+a:active .rect-white {
+    fill: #5E1B41;
+    transition: ease-in-out 300ms;
+}
+
+
 .footer-info {
     background-color: var(--rosa-escuro);
 
@@ -1079,6 +1103,10 @@ footer {
 
 
 @media screen and (max-width: 1050px) {
+    .whatsapp-icon {
+        bottom: 10%;
+    } 
+    
     .line {
         left: 33px;
     }
@@ -1093,7 +1121,6 @@ footer {
     .slider {
         height: 45vh;
     }
-    
 
 }
 
