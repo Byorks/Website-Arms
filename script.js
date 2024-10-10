@@ -456,44 +456,44 @@ function restaurarLayoutOriginal() {
     slider.innerHTML = `
         <div class="item active">
             <div class="photo-slide">
-                <img class="photo-category" src="https://unsplash.it/640/400?image=92" alt="">
-                <img class="photo-category" src="https://unsplash.it/640/400?image=212" alt="">
-                <img class="photo-category" src="https://unsplash.it/640/400?image=111" alt="">
-                <img class="photo-category" src="https://unsplash.it/640/400?image=32" alt="">
+                <img class="photo-category" src="images/carousel/products/conjunto-01.jpg" alt="">
+                <img class="photo-category" src="images/carousel/products/conjunto-02.jpg" alt="">
+                <img class="photo-category" src="images/carousel/products/conjunto-03.jpg" alt="">
+                <img class="photo-category" src="images/carousel/products/conjunto-04.jpg" alt="">
             </div>
             <div class="photo-slide">
-                <img class="photo-category" src="https://unsplash.it/640/400?image=132" alt="">
-                <img class="photo-category" src="https://unsplash.it/640/400?image=112" alt="">
-                <img class="photo-category" src="https://unsplash.it/640/400?image=222" alt="">
-                <img class="photo-category" src="https://unsplash.it/640/400?image=32" alt="">
-            </div>
-        </div>
-        <div class="item">
-            <div class="photo-slide">
-                <img class="photo-category" src="https://unsplash.it/640/400?image=31" alt="">
-                <img class="photo-category" src="https://unsplash.it/640/400?image=66" alt="">
-                <img class="photo-category" src="https://unsplash.it/640/400?image=90" alt="">
-                <img class="photo-category" src="https://unsplash.it/640/400?image=198" alt="">
-            </div>
-            <div class="photo-slide">
-                <img class="photo-category" src="https://unsplash.it/640/400?image=80" alt="">
-                <img class="photo-category" src="https://unsplash.it/640/400?image=74" alt="">
-                <img class="photo-category" src="https://unsplash.it/640/400?image=42" alt="">
-                <img class="photo-category" src="https://unsplash.it/640/400?image=33" alt="">
+                <img class="photo-category" src="images/carousel/products/conjunto-05.jpg" alt="">
+                <img class="photo-category" src="images/carousel/products/conjunto-06.jpg" alt="">
+                <img class="photo-category" src="images/carousel/products/conjunto-07.jpg" alt="">
+                <img class="photo-category" src="images/carousel/products/conjunto-08.jpg" alt="">
             </div>
         </div>
         <div class="item">
             <div class="photo-slide">
-                <img class="photo-category" src="https://unsplash.it/640/400?image=41" alt="">
-                <img class="photo-category" src="https://unsplash.it/640/400?image=66" alt="">
-                <img class="photo-category" src="https://unsplash.it/640/400?image=90" alt="">
-                <img class="photo-category" src="https://unsplash.it/640/400?image=63" alt="">
+                <img class="photo-category" src="images/carousel/products/conjunto-09.jpg" alt="">
+                <img class="photo-category" src="images/carousel/products/conjunto-10.jpg" alt="">
+                <img class="photo-category" src="images/carousel/products/conjunto-11.jpg" alt="">
+                <img class="photo-category" src="images/carousel/products/conjunto-12.jpg" alt="">
+                </div>
+            <div class="photo-slide">
+                <img class="photo-category" src="images/carousel/products/conjunto-13.jpg" alt="">
+                <img class="photo-category" src="images/carousel/products/conjunto-14.jpg" alt="">
+                <img class="photo-category" src="images/carousel/products/conjunto-15.jpg" alt="">
+                <img class="photo-category" src="images/carousel/products/conjunto-16.jpg" alt="">
+            </div>
+        </div>
+        <div class="item">
+            <div class="photo-slide">
+                <img class="photo-category" src="images/carousel/products/conjunto-17.jpg" alt="">
+                <img class="photo-category" src="images/carousel/products/conjunto-18.jpg" alt="">
+                <img class="photo-category" src="images/carousel/products/conjunto-18.jpg" alt="">
+                <img class="photo-category" src="images/carousel/products/conjunto-19.jpg" alt="">
             </div>
             <div class="photo-slide">
-                <img class="photo-category" src="https://unsplash.it/640/400?image=84" alt="">
-                <img class="photo-category" src="https://unsplash.it/640/400?image=54" alt="">
-                <img class="photo-category" src="https://unsplash.it/640/400?image=123" alt="">
-                <img class="photo-category" src="https://unsplash.it/640/400?image=235" alt="">
+                <img class="photo-category" src="images/carousel/products/conjunto-20.jpg" alt="">
+                <img class="photo-category" src="images/carousel/products/conjunto-01.jpg" alt="">
+                <img class="photo-category" src="images/carousel/products/conjunto-02.jpg" alt="">
+                <img class="photo-category" src="images/carousel/products/conjunto-03.jpg" alt="">
             </div>
         </div>
     `;

@@ -162,10 +162,6 @@ header {
     display: none;
 }
 
-#banner {
-    
-}
-
 main .slider {
     width: 100%;
     height: 90vh;
@@ -192,7 +188,7 @@ main .item:not(.active) button {
 }
 
 
-main .item button, #contato button:nth-child(2){
+main .item button, .button-contato{
     height: 58px;
     width: 278px;
 
@@ -208,6 +204,39 @@ main .item button, #contato button:nth-child(2){
     border: none;
 
     cursor: pointer;
+
+    transition: ease-out 300ms;
+}
+
+main .item button:hover, .button-contato:hover{
+    background-color: #5E1B41;
+
+    transition: ease-out 300ms;
+}
+
+main .item button:active,.button-contato:active{
+    background-color: #DF66AA;
+
+    transition: ease-out 300ms;
+}
+
+.whatsapp-icon {
+    position: fixed;
+    right: 5%;
+    bottom: 5%;
+    z-index: 99;
+}
+
+.whatsapp-icon:hover {
+    animation: tilt-shaking 0.25s infinite;
+}
+
+@keyframes tilt-shaking {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(5deg); }
+    50% { transform: rotate(0deg); }
+    75% { transform: rotate(-5deg); }
+    100% { transform: rotate(0deg);}
 }
 
 @keyframes slide {
@@ -263,6 +292,7 @@ main .item button, #contato button:nth-child(2){
     align-items: center;
 }
 
+
 .genre-selector {
     position: relative;
     width: 50%;
@@ -316,22 +346,22 @@ main .item button, #contato button:nth-child(2){
     margin-bottom: 10px;
 }
 
+.content.masc h3{
+    color:#5371B3;
+}
+
 .content-photos {
     display: flex;
     justify-content: space-between;
     gap: 20px;
 }
 
-.photo-category {
-    width: 425px;
-    height: 425px;
+.black-text {
+    color: black;
+}
 
-    /* Coloquei dessa forma para não ter que aumentar o tamanho da caixa */
-    box-sizing:initial;
-    border-bottom: solid 5px var(--rosa-escuro);
-    
-    background:linear-gradient(180deg, #FFFFFF 0%, #FFB1C5 100%);
-
+.negative-text {
+    color: white;
 }
 
 .photo-category {
@@ -343,12 +373,28 @@ main .item button, #contato button:nth-child(2){
     border-bottom: solid 5px var(--rosa-escuro);
     
     background:linear-gradient(180deg, #FFFFFF 0%, #FFB1C5 100%);
-
+    position: relative;
 }
 
 .content:nth-child(2) .photo-category {
     background:linear-gradient(180deg, #FFFFFF 0%, #B1E0FF 100%);
     border-bottom: solid 5px #5371B3;
+}
+
+.text-category {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: rotate(180deg) translateY(50%);
+    text-align: center;
+    writing-mode: vertical-rl;
+    z-index: 3;
+}
+
+/* Necessário por conta da especificade que cobre o h3 lá em cima*/
+.text-category h3 {
+    font-weight: 400;
+    font-size: 1.8em;
 }
 
 .photo-category img {
@@ -395,10 +441,22 @@ main .item button, #contato button:nth-child(2){
     height: 444px;
 
     object-fit: cover;
+    border-bottom: solid 5px var(--rosa-escuro);
 }
 
 .photo-arms:nth-child(2) {
-    object-fit: contain;
+    object-fit: scale-down;
+}
+
+.history:nth-child(3) .photo-arms {
+    filter: grayscale(1);
+    transition: ease-in-out 300ms;
+}
+
+.history:nth-child(3) .photo-arms:hover {
+    filter: grayscale(0);
+
+    transition: ease-in-out 300ms;
 }
 
 #slide-1, #slide-2, #slide-3 {
@@ -421,10 +479,13 @@ main .item button, #contato button:nth-child(2){
 }
 
 .photo-model {
-    height: 715px;
+    /* height: 715px; */
     width: 466px;
-    object-fit:fill;
-    border-bottom: solid 5px var(--rosa-medio);
+    object-fit:contain;
+    box-sizing:initial;
+    border-bottom: solid 5px var(--rosa-escuro);
+    
+    background:linear-gradient(180deg, #FFFFFF 0%, #FFB1C5 100%);
 }
 
 .slider {
@@ -596,6 +657,10 @@ main .item button, #contato button:nth-child(2){
     justify-content: center;
 }
 
+.carrossel-products .photo-category {
+    object-fit: cover;
+}
+
 .carrossel-products .dots {
     /* Faz nada */
     bottom: 0;
@@ -697,9 +762,8 @@ main .item button, #contato button:nth-child(2){
 }
 
 /* Herda do botão da main */
-#contato button:nth-child(2){
+.button-contato{
     position: unset;
-    width: 25%;
 }
 
 .social {
@@ -733,7 +797,34 @@ main .item button, #contato button:nth-child(2){
 
 .buttons a {
     width: 60%;
-    text-decoration-line: none;    
+    text-decoration-line: none;
+}
+button a button {
+    transition: ease-in-out 300ms;
+}
+
+.buttons a:nth-of-type(1):hover button,
+.buttons a:nth-of-type(2):hover button {
+    color: #811B54;
+    cursor: pointer;
+    /* background: white; */
+    transition: ease-in-out 300ms;
+}
+
+.buttons a:nth-of-type(1):active button,
+.buttons a:nth-of-type(2):active button {
+    color: #DF66AA;
+    transition: ease-in-out 100ms;
+}
+
+.buttons a:hover .social-button{
+    fill: #811B54;
+    transition: ease-in-out 300ms;    
+}
+
+.buttons a:active .social-button{
+    fill: #DF66AA; 
+    transition: ease-in-out 100ms;   
 }
 
 .buttons button {
@@ -823,6 +914,30 @@ footer {
     text-align: center;
 }
 
+.rect-white {
+    transition: ease-in-out 300ms;
+}
+
+a:hover .rect-white {
+    fill: #811B54;
+    transition: ease-in-out 300ms;
+}
+
+a:hover .logo-social path {
+    fill: white; /* Muda a cor do path para branco */
+}
+  
+a:hover .logo-social rect {
+    stroke: white; /* Muda a cor do stroke do rect para branco */
+}
+
+
+a:active .rect-white {
+    fill: #5E1B41;
+    transition: ease-in-out 300ms;
+}
+
+
 .footer-info {
     background-color: var(--rosa-escuro);
 
@@ -857,6 +972,8 @@ footer {
     transform:  scaleX(-1) scaleY(-1);
 }
 
+
+
 @media screen and (max-width: 1825px) {
     
     .photo-category, .photo-category img {
@@ -868,14 +985,13 @@ footer {
         left: 129px;
     }
 
-    .models .slider {
-        height: 586px;
+    .slider {
+        height: 55vh;
     }
-
     
-    .models .list img {
-        width: 382px;
-        height: 586px;
+    .photo-model {
+        width: 362px;
+        /* height: 586px; */
     }
     
     .carrossel-products .container-grid {
@@ -931,14 +1047,6 @@ footer {
         left: 88px;
     }
 
-    .models .list img {
-        width: 382px;
-        height: 586px;
-    }
-    
-    .photo-model {
-
-    }
     .photo-category, .photo-category img {
         width: 280px;
         height: 274px;
@@ -959,15 +1067,6 @@ footer {
     .line {
         left: 67px;
     }
-    
-    .models .slider {
-        height: 466px;
-    }
-
-    .models .list img {
-        width: 304px;
-        height: 466px;
-    }
 
     .carrossel-products {
         padding: 64px 0;
@@ -981,10 +1080,6 @@ footer {
     .buttons {
         width: 100%;
         gap: 24px;
-    }
-
-    #contato button:nth-child(2) {
-        width: 35%;
     }
 }
 
@@ -1014,6 +1109,12 @@ footer {
         left: 52px;
     }
 
+    .photo-model {
+        padding-top: 24px;
+        width: 320px;
+        object-fit: scale-down;
+    }
+
     .contato {
         padding: 84px 92px;
     }
@@ -1021,6 +1122,10 @@ footer {
 
 
 @media screen and (max-width: 1050px) {
+    .whatsapp-icon {
+        bottom: 2%;
+    } 
+    
     .line {
         left: 33px;
     }
@@ -1032,6 +1137,10 @@ footer {
     .buttons {
         flex-direction: column;
     }
+    .slider {
+        height: 45vh;
+    }
+
 }
 
 
@@ -1039,39 +1148,9 @@ footer {
     .line {
         left: 23px;
     }
-    
-    .models .slider {
-        height: 411px;
-    }
 
     .models .item {
         position: relative;
-    }
- 
-/* 
-    Degradê 
-
-       .models .item::after, .models .item::before{
-        position: absolute;
-        top: 0;
-
-        width: 200px;
-        height: 100%;
-        content: "";
-    }
-
-    .models .item:after {
-        right: 0;
-        background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
-    }
-    .models .item::before{
-        left: 0;
-        background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
-    } */
-    
-    .models .list img {
-        width: 268px;
-        height: 411px;
     }
 
     .bg-icons .pattern {
@@ -1123,8 +1202,8 @@ footer {
         gap: 24px;
 
         position: absolute;
-        top: 61px;
-
+        top: 49px;
+        right: 10px;
         z-index: 2;
     }
 
@@ -1157,12 +1236,7 @@ footer {
         font-size: 1.1em;
     }   
 
-    /* Depois implementar dots que seguem o user mesmo com scroll */
-    /* main .dots {
-        position: sticky;
-    } */
-
-    main .item button, #contato button:nth-child(2) {
+    .button-contato {
         bottom: 10%;
     }
 
@@ -1239,7 +1313,7 @@ footer {
         gap: 8px;
     }
 
-    #contato button:nth-child(2) {
+    .button-contato {
         height: unset;
         width: 30vw;
 
@@ -1290,27 +1364,33 @@ footer {
 }
 
 @media screen and ( max-width: 765px) {
+    .photo-arms:nth-child(2) {
+        height: 10vh;
+        object-fit: cover;
+    }
+
     .dots li.active,.dots li {
         width: 2rem;
         height: 7px;
         margin: 8px;
     }
     
-    .models .list img {
-        object-fit: cover;
-    }
+    /* .photo-model {
+        object-fit: contain;
+    } */
 
     .faq {
         width: 80%;
         font-size: 0.8rem;
     }
 
-    #contato button:nth-child(2) {
+    .button-contato{
         width: 100%;
     }
 }
 
 @media screen and (max-width: 650px) {
+
     .existing-pattern {
         display: none;
     }
@@ -1393,6 +1473,14 @@ footer {
         background-color: #fff;
         box-shadow: none;
     }
+
+    .photo-arms:nth-child(2) {
+        height: 5vh;
+        object-fit: cover;
+    }
+}
+
+@media screen and (max-width: 500px) {
 }
 
 @media screen and (max-width: 465px) {
@@ -1412,6 +1500,15 @@ footer {
         width: 100%;
     }
 }
+
+@media screen and (max-width: 400px) {
+
+}
+
+@media screen and (max-width: 376px) {
+
+}
+
 
 @media screen and (max-width: 350px) {
     .line {
