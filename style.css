@@ -162,10 +162,6 @@ header {
     display: none;
 }
 
-#banner {
-    
-}
-
 main .slider {
     width: 100%;
     height: 90vh;
@@ -227,7 +223,7 @@ main .item button:active,.button-contato:active{
 .whatsapp-icon {
     position: fixed;
     right: 5%;
-    bottom: 22%;
+    bottom: 5%;
     z-index: 99;
 }
 
@@ -801,7 +797,34 @@ main .item button:active,.button-contato:active{
 
 .buttons a {
     width: 60%;
-    text-decoration-line: none;    
+    text-decoration-line: none;
+}
+button a button {
+    transition: ease-in-out 300ms;
+}
+
+.buttons a:nth-of-type(1):hover button,
+.buttons a:nth-of-type(2):hover button {
+    color: #811B54;
+    cursor: pointer;
+    /* background: white; */
+    transition: ease-in-out 300ms;
+}
+
+.buttons a:nth-of-type(1):active button,
+.buttons a:nth-of-type(2):active button {
+    color: #DF66AA;
+    transition: ease-in-out 100ms;
+}
+
+.buttons a:hover .social-button{
+    fill: #811B54;
+    transition: ease-in-out 300ms;    
+}
+
+.buttons a:active .social-button{
+    fill: #DF66AA; 
+    transition: ease-in-out 100ms;   
 }
 
 .buttons button {
@@ -1024,10 +1047,6 @@ a:active .rect-white {
         left: 88px;
     }
 
-
-    .photo-model {
-
-    }
     .photo-category, .photo-category img {
         width: 280px;
         height: 274px;
@@ -1093,7 +1112,7 @@ a:active .rect-white {
     .photo-model {
         padding-top: 24px;
         width: 320px;
-        object-fit: fill;
+        object-fit: scale-down;
     }
 
     .contato {
@@ -1104,7 +1123,7 @@ a:active .rect-white {
 
 @media screen and (max-width: 1050px) {
     .whatsapp-icon {
-        bottom: 10%;
+        bottom: 2%;
     } 
     
     .line {
@@ -1216,11 +1235,6 @@ a:active .rect-white {
     p {
         font-size: 1.1em;
     }   
-
-    /* Depois implementar dots que seguem o user mesmo com scroll */
-    /* main .dots {
-        position: sticky;
-    } */
 
     .button-contato {
         bottom: 10%;

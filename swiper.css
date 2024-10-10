@@ -23,6 +23,7 @@
     position: relative;
 }
 
+
 .swiper-slide a {
     position: absolute;
     width: 100%;
@@ -54,12 +55,16 @@
     margin-right: 20px !important;
 }
 
+/* @media (max-width: 1650px) {
+    #banner .swiper-slide {
+        height: 95vh !important;
+    }
+} */
 
-@media (max-width: 1430px) {
+@media (max-width: 1475px) {
     .swiper {
         max-width: 98.5vw;
     }
-    
 }
 
 @media (max-width: 1000px) {
@@ -69,6 +74,10 @@
 
     .SwiperCategoryDesktop, .SwiperBannerDesktop {
         display: none !important;
+    }
+
+    #banner .swiper-slide {
+        height: 100% !important;
     }
 }
 
