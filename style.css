@@ -1344,6 +1344,10 @@ a:active .rect-white {
         width: 100%;
     }
 
+    .perguntas {
+        margin-bottom: 32px;
+    }
+
     .contato {
         flex-direction: column;
         gap: 12px;
