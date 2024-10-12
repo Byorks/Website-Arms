@@ -371,7 +371,7 @@ function reorganizarSlides() {
     dotsContainer.innerHTML = '';
 
     // Cria novos itens com dois photo-slides, cada um contendo duas imagens
-    for (let i = 0; i < allImages.length; i += 4) {
+    for (let i = 0; i < allImages.length && i / 4 < 6; i += 4) { // Limita a 6 dots (6 items no máximo)
         const newItem = document.createElement('div');
         newItem.classList.add('item');
         if (i === 0) newItem.classList.add('active');  // Marca o primeiro item como ativo
@@ -421,7 +421,7 @@ const reorganizarSlidesOne = () => {
     dotsContainer.innerHTML = '';
     
     // Cria novos itens com dois photo-slides, cada um contendo uma imagem
-    for (let i = 0; i < allImages.length; i += 2) { // Incrementa de 2 em 2 para garantir 2 slides por item
+    for (let i = 0; i < allImages.length && i / 2 < 12; i += 2) { // Limita a 12 dots (12 items no máximo)
         const newItem = document.createElement('div');
         newItem.classList.add('item');
         if (i === 0) newItem.classList.add('active');  // Marca o primeiro item como ativo
