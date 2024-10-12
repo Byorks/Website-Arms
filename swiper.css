@@ -91,7 +91,7 @@
 @media (max-width: 500px) {
     .category .swiper-slide {
         width: 100% !important;
-        margin-right: 2.2vh !important;
+        margin-right: 3.2vh !important;
 
         display: flex !important;
         justify-content: center !important;
