@@ -492,14 +492,14 @@ function restaurarLayoutOriginal() {
             <div class="photo-slide">
                 <img class="photo-category" src="images/carousel/products/conjunto-17.jpg" alt="">
                 <img class="photo-category" src="images/carousel/products/conjunto-18.jpg" alt="">
-                <img class="photo-category" src="images/carousel/products/conjunto-18.jpg" alt="">
                 <img class="photo-category" src="images/carousel/products/conjunto-19.jpg" alt="">
+                <img class="photo-category" src="images/carousel/products/conjunto-20.jpg" alt="">
             </div>
             <div class="photo-slide">
-                <img class="photo-category" src="images/carousel/products/conjunto-20.jpg" alt="">
                 <img class="photo-category" src="images/carousel/products/conjunto-01.jpg" alt="">
                 <img class="photo-category" src="images/carousel/products/conjunto-02.jpg" alt="">
                 <img class="photo-category" src="images/carousel/products/conjunto-03.jpg" alt="">
+                <img class="photo-category" src="images/carousel/products/conjunto-21.jpg" alt="">
             </div>
         </div>
     `;
