@@ -387,10 +387,8 @@ function reorganizarSlides() {
                     newSlide.appendChild(allImages[imgIndex]);
                 }
             }
-
             newItem.appendChild(newSlide);
         }
-
         // Adiciona o novo item ao slider
         slider.appendChild(newItem);
 
@@ -398,6 +396,10 @@ function reorganizarSlides() {
         const newDot = document.createElement('li');
         if (i === 0) newDot.classList.add('active');  // Marca o primeiro dot como ativo
         dotsContainer.appendChild(newDot);
+    }
+     // Garante que os dots permaneçam no container correto
+    if (dotsContainer.parentElement !== document.querySelector('.carrossel-products .container-grid')) {
+        document.querySelector('.carrossel-products .container-grid').appendChild(dotsContainer);
     }
 }
 
@@ -444,6 +446,10 @@ const reorganizarSlidesOne = () => {
         const newDot = document.createElement('li');
         if (i === 0) newDot.classList.add('active');  // Marca o primeiro dot como ativo
         dotsContainer.appendChild(newDot);
+    }
+     // Garante que os dots permaneçam no container correto
+    if (dotsContainer.parentElement !== document.querySelector('.carrossel-products .container-grid')) {
+        document.querySelector('.carrossel-products .container-grid').appendChild(dotsContainer);
     }
 }
 
