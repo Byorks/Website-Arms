@@ -162,64 +162,6 @@ header {
     display: none;
 }
 
-main .slider {
-    width: 100%;
-    height: 90vh;
-    max-height: 965px;
-}
-
-main .dots {
-    position: absolute;
-    bottom: 24px;
-}
-
-main .list img {
-    width: 100vw;
-    height: 100%;
-    object-fit: cover;
-}
-
-.banner-1 {
-    position: relative;
-}
-
-main .item:not(.active) button {
-    display: none;
-}
-
-
-main .item button, .button-contato{
-    height: 58px;
-    width: 278px;
-
-    position: relative;
-    bottom: 35%;
-    right: 50%;
-
-    color: white;
-    background-color: var(--rosa-escuro);
-
-    font-family: 'Open Sans Bold';
-    font-size: 1.5rem;
-    border: none;
-
-    cursor: pointer;
-
-    transition: ease-out 300ms;
-}
-
-main .item button:hover, .button-contato:hover{
-    background-color: #5E1B41;
-
-    transition: ease-out 300ms;
-}
-
-main .item button:active,.button-contato:active{
-    background-color: #DF66AA;
-
-    transition: ease-out 300ms;
-}
-
 .whatsapp-icon {
     position: fixed;
     right: 5%;
@@ -274,7 +216,6 @@ main .item button:active,.button-contato:active{
     margin: 0 192px;
 }
 
-
 .category {
     padding: 132px 0;
     
@@ -291,7 +232,6 @@ main .item button:active,.button-contato:active{
     justify-content: center;
     align-items: center;
 }
-
 
 .genre-selector {
     position: relative;
