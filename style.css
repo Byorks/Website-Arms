@@ -459,7 +459,7 @@ main .item button:active,.button-contato:active{
     transition: ease-in-out 300ms;
 }
 
-#slide-1, #slide-2, #slide-3 {
+.slide-model {
     display: flex;
     justify-content: center;
     gap: 34px;
@@ -525,6 +525,7 @@ main .item button:active,.button-contato:active{
     padding: 0;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .dots li {
@@ -1479,12 +1480,9 @@ a:active .rect-white {
     }
 
     .photo-arms:nth-child(2) {
-        height: 5vh;
+        height: 13vh;
         object-fit: cover;
     }
-}
-
-@media screen and (max-width: 500px) {
 }
 
 @media screen and (max-width: 465px) {
@@ -1504,15 +1502,6 @@ a:active .rect-white {
         width: 100%;
     }
 }
-
-@media screen and (max-width: 400px) {
-
-}
-
-@media screen and (max-width: 376px) {
-
-}
-
 
 @media screen and (max-width: 350px) {
     .line {

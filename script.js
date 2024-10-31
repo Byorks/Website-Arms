@@ -106,39 +106,9 @@ window.addEventListener('scroll', function(){
     }
 });
 
-// Banner Carrossel
-let listBanner = document.querySelector('main .slider .list');
-let itemsBanner = document.querySelectorAll('main .slider .list .item');
-let dotsBanner= document.querySelectorAll('main .dots li');
-
-let activeBanner = 0;
-let lengthItemsBanner = itemsBanner.length - 1;
-
-// let refreshSlider = setInterval(()=> {next.click()}, 3000)
-
-const reloadSliderBanner = () => {
-    let checkLeft = itemsBanner[active].offsetLeft;
-    listBanner.style.left = -checkLeft + 'px';
-
-    let lastActiveDot = document.querySelector('main .slider .dots li.active');
-    lastActiveDot.classList.remove('active');
-    dotsBanner[active].classList.add('active');
-    // clearInterval(refreshSlider);
-    // refreshSlider = setInterval(()=> {next.click()}, 3000)
-}
-
-dotsBanner.forEach ((li,key) => {
-    li.addEventListener('click', function(){
-        active = key;
-        reloadSliderBanner();
-    })
-})
-
-
 // Slider Models
 /* Precisa corrigir o next */
 const sliderModels = () => {
-
     let list = document.querySelector('.models .slider .list');
     let items = document.querySelectorAll('.models .slider .list .item');
     let dots = document.querySelectorAll('.models .dots li');
@@ -186,8 +156,6 @@ const sliderClothes = () => {
         let lastActiveDotClothes = document.querySelector('.carrossel-products .dots li.active');
         lastActiveDotClothes.classList.remove('active');
         dotsClothes[active].classList.add('active');
-        clearInterval(refreshSlider);
-        refreshSlider = setInterval(()=> {next.click()}, 3000)
     }
 
     dotsClothes.forEach ((li,key) => {
@@ -285,7 +253,7 @@ const restoreOriginalStructure = () => {
         // let dotLi = dotList.querySelectorAll('li');
         let dotLi = document.querySelectorAll('.models .dots li');
         for (i = 0; i < 6; i++) {
-            if (dotLi.length > 3) {
+            if (dotLi.length > 6) {
                 dotLi[i].remove();
             }
         }
@@ -525,7 +493,6 @@ function checkScreenSize() {
         reorganizarSlides();
     }
 }
-
 
 document.addEventListener('DOMContentLoaded', () => {
     checkScreenSize();
