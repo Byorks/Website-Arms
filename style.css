@@ -158,10 +158,6 @@ header {
     display: none;
 }
 
-#header button {
-    display: none;
-}
-
 .whatsapp-icon {
     position: fixed;
     right: 5%;
@@ -702,10 +698,41 @@ header {
     align-items: center;
 }
 
-/* Herda do botão da main */
-.button-contato{
-    position: unset;
+
+#header button {
+    display: none;
 }
+
+.button-contato{
+    height: 58px;
+    width: 278px;
+
+    color: white;
+    background-color: var(--rosa-escuro);
+
+    font-family: 'Open Sans Bold';
+    font-size: 1.5rem;
+    border: none;
+
+    cursor: pointer;
+
+    transition: ease-out 300ms;
+}
+
+.button-contato:hover{
+    background-color: #5E1B41;
+
+    transition: ease-out 300ms;
+}
+
+.button-contato:active{
+    background-color: #DF66AA;
+
+    transition: ease-out 300ms;
+}
+
+
+
 
 .social {
     width: 60%;
@@ -833,13 +860,13 @@ footer {
 }
 
 .container-icon {
-    width: 24%;
+    width: 28%;
 
     display: flex;
     justify-content: center;
     align-self: center;
     flex-direction: column;
-    gap: 24px;
+
 }
 
 .container-icon div {
@@ -847,7 +874,7 @@ footer {
 
     justify-content: center;
     align-items: center;
-    gap: 32px;
+    gap: 24px;
     flex-wrap: wrap;
 }
 
@@ -1331,6 +1358,8 @@ a:active .rect-white {
 
     .button-contato{
         width: 100%;
+        font-size: 1.2rem;
+        padding: 8px 16px;
     }
 }
 
